@@ -13,13 +13,16 @@ public class NPCController : MonoBehaviour {
     public TextMeshProUGUI dialogueDisplay;
     public GameObject guestDisplay;
     public Button guestButton;
-    private string[] questAdvertisment = {"Can you lend us a hand?", "Please help us!", "Over here!"};
-    private string[] questIntro = {"Hello traveller!", "We need your help!"};
-    private string[] questUnfinished = {"Have you collected it for us yet?", "Hows that thing you were doing for us going?"};
-    private string[] questCompletion = {"Thank you so much!", "Here, take this for you troubles!"};
-    private string[] questFinished = {"I hope your having a good day hero!", "We are forever grateful hero!"};
-    private int questStage = 0;
-    private int dialogueCount = 0;
+
+    public string[] questAdvertisment = {"Can you lend us a hand?", "Please help us!", "Over here!"};
+    public string[] questIntro = {"Hello traveller!", "We need your help!"};
+    public string[] questUnfinished = {"Have you collected it for us yet?", "Hows that thing you were doing for us going?"};
+    public string[] questCompletion = {"Thank you so much!", "Here, take this for you troubles!"};
+    public string[] questFinished = {"I hope your having a good day hero!", "We are forever grateful hero!"};
+
+    public int questStage = 0;
+    public int dialogueCount = 0;
+    public bool completionCondition;
 
     void Start() {
         player = GameObject.Find("Player");
@@ -49,6 +52,7 @@ public class NPCController : MonoBehaviour {
                 questStage = 4;
                 guestButton.gameObject.SetActive(false);
                 dialogueDisplay.text = questFinished[UnityEngine.Random.Range(0, questFinished.Length)];
+                player.GetComponent<PlayerController>().money += 200;
             }
         }
     }
@@ -88,13 +92,13 @@ public class NPCController : MonoBehaviour {
         }
     }
 
-    void FixedUpdate() {
-        if (Input.GetKey(KeyCode.Space) && playerColliding) {
+    void Update() {
+        if (Input.GetMouseButton(0) && playerColliding) {
             if (questStage == 0) {
                 questStage = 1;
                 dialogueDisplay.text = questIntro[0];
                 guestButton.gameObject.SetActive(true);
-            } else if (questStage == 2 && player.GetComponent<PlayerController>().money > 2000) {
+            } else if (questStage == 2 && completionCondition) {
                 questStage = 3;
                 dialogueDisplay.text = questCompletion[0];
                 guestButton.gameObject.SetActive(true);

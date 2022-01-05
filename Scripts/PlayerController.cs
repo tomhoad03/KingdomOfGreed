@@ -7,12 +7,33 @@ public class PlayerController : MonoBehaviour {
     public int money;
     public float speed = 0.08f;
 
+    public int damage = 100;
+    public int health = 1000;
+    public int maxHealth = 1000;
+
+    public int enemiesKilled = 0;
+
+    public float damageIndicatorTime;
+    private float healthRecoveryTime;
+    public bool enemyColliding;
+
     private Vector3 currentPos;
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Enemy") {
+            enemyColliding = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.tag == "Enemy") {
+            enemyColliding = false;
+        }
+    }
 
     void FixedUpdate() {
         currentPos = this.transform.position;
 
-        // Player movement
         switch (Input.GetKey(KeyCode.W), Input.GetKey(KeyCode.A), Input.GetKey(KeyCode.S), Input.GetKey(KeyCode.D)) {
             case (true, true, false, false):
                 currentPos = new Vector3(currentPos.x - speed / 1.41f, currentPos.y + speed / 1.41f, currentPos.z);
@@ -40,5 +61,16 @@ public class PlayerController : MonoBehaviour {
                 break;
         }
         this.transform.position = currentPos;
+
+        if (Time.time > damageIndicatorTime) {
+            this.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        if (health <= 0) {
+            this.GetComponent<SpriteRenderer>().color = Color.magenta;
+        }
+        if (Time.time > healthRecoveryTime && health < maxHealth) {
+            health += 1;
+            healthRecoveryTime = Time.time + 0.25f;
+        }
     }
 }

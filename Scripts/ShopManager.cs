@@ -50,7 +50,6 @@ public class ShopManager : MonoBehaviour {
 
     // House purchases
     public void HousePurchaseOne() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 1000)) {
             canAfford.SetActive(true);
         } else {
@@ -59,7 +58,6 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void HousePurchaseTwo() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 1000)) {
             canAfford.SetActive(true);
         } else {
@@ -68,7 +66,6 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void HousePurchaseThree() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 1000)) {
             canAfford.SetActive(true);
         } else {
@@ -78,8 +75,8 @@ public class ShopManager : MonoBehaviour {
 
     // Armour purchases
     public void ArmourPurchaseOne() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 500)) {
+            player.GetComponent<PlayerController>().maxHealth += 500;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -87,8 +84,8 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void ArmourPurchaseTwo() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 500)) {
+            player.GetComponent<PlayerController>().maxHealth += 500;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -96,8 +93,8 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void ArmourPurchaseThree() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 500)) {
+            player.GetComponent<PlayerController>().maxHealth += 500;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -106,8 +103,8 @@ public class ShopManager : MonoBehaviour {
 
     // Weapon purchases
     public void WeaponPurchaseOne() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 200)) {
+            player.GetComponent<PlayerController>().damage = 200;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -115,8 +112,8 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void WeaponPurchaseTwo() {
-
-        if (CanAfford(player.GetComponent<PlayerController>().money, 200)) {
+        if (CanAfford(player.GetComponent<PlayerController>().money, 400)) {
+            player.GetComponent<PlayerController>().damage = 300;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -124,8 +121,8 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void WeaponPurchaseThree() {
-
-        if (CanAfford(player.GetComponent<PlayerController>().money, 200)) {
+        if (CanAfford(player.GetComponent<PlayerController>().money, 600)) {
+            player.GetComponent<PlayerController>().damage = 400;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -134,7 +131,6 @@ public class ShopManager : MonoBehaviour {
 
     // Material purchases
     public void MaterialPurchaseOne() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 100)) {
             canAfford.SetActive(true);
         } else {
@@ -143,7 +139,6 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void MaterialPurchaseTwo() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 100)) {
             canAfford.SetActive(true);
         } else {
@@ -152,7 +147,6 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void MaterialPurchaseThree() {
-
         if (CanAfford(player.GetComponent<PlayerController>().money, 100)) {
             canAfford.SetActive(true);
         } else {
