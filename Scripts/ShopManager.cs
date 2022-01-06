@@ -4,44 +4,42 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour {
+    private GameObject player;
+    private PlayerController playerController;
 
     public int playerMoney;
-    GameObject player;
     public GameObject shop;
     public GameObject cannotAfford;
     public GameObject canAfford;
     public Text moneyText;
 
     void Start() {
-
         player = GameObject.Find("Player");
+        playerController = player.GetComponent<PlayerController>();
+
         shop.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.name == "Player") {
             shop.SetActive(true);
-            Debug.Log("Player is at shop");
-            //Debug.Log("Money : " + playerMoney);
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.name == "Player") {
             shop.SetActive(false);
-            Debug.Log("Player has left the shop");
-            //Debug.Log("Money : " + playerMoney);
         }
     }
 
     void FixedUpdate() {
-        playerMoney = player.GetComponent<PlayerController>().money;
+        playerMoney = playerController.money;
         moneyText.text = playerMoney.ToString();
     }
 
     private bool CanAfford(int playerCash, int price) {
         if (playerCash >= price) {
-            player.GetComponent<PlayerController>().money -= price;
+            playerController.money -= price;
             return true;
         } else {
             return false;
@@ -50,7 +48,7 @@ public class ShopManager : MonoBehaviour {
 
     // House purchases
     public void HousePurchaseOne() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 1000)) {
+        if (CanAfford(playerController.money, 1000)) {
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -58,7 +56,7 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void HousePurchaseTwo() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 1000)) {
+        if (CanAfford(playerController.money, 1000)) {
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -66,7 +64,7 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void HousePurchaseThree() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 1000)) {
+        if (CanAfford(playerController.money, 1000)) {
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -75,8 +73,8 @@ public class ShopManager : MonoBehaviour {
 
     // Armour purchases
     public void ArmourPurchaseOne() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 500)) {
-            player.GetComponent<PlayerController>().maxHealth += 500;
+        if (CanAfford(playerController.money, 500)) {
+            playerController.maxHealth += 500;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -84,8 +82,8 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void ArmourPurchaseTwo() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 500)) {
-            player.GetComponent<PlayerController>().maxHealth += 500;
+        if (CanAfford(playerController.money, 500)) {
+            playerController.maxHealth += 500;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -93,8 +91,8 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void ArmourPurchaseThree() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 500)) {
-            player.GetComponent<PlayerController>().maxHealth += 500;
+        if (CanAfford(playerController.money, 500)) {
+            playerController.maxHealth += 500;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -103,8 +101,8 @@ public class ShopManager : MonoBehaviour {
 
     // Weapon purchases
     public void WeaponPurchaseOne() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 200)) {
-            player.GetComponent<PlayerController>().damage = 200;
+        if (CanAfford(playerController.money, 200)) {
+            playerController.damage = 200;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -112,8 +110,8 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void WeaponPurchaseTwo() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 400)) {
-            player.GetComponent<PlayerController>().damage = 300;
+        if (CanAfford(playerController.money, 400)) {
+            playerController.damage = 300;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -121,8 +119,8 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void WeaponPurchaseThree() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 600)) {
-            player.GetComponent<PlayerController>().damage = 400;
+        if (CanAfford(playerController.money, 600)) {
+            playerController.damage = 400;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -131,7 +129,7 @@ public class ShopManager : MonoBehaviour {
 
     // Material purchases
     public void MaterialPurchaseOne() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 100)) {
+        if (CanAfford(playerController.money, 100)) {
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -139,7 +137,7 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void MaterialPurchaseTwo() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 100)) {
+        if (CanAfford(playerController.money, 100)) {
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -147,7 +145,7 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void MaterialPurchaseThree() {
-        if (CanAfford(player.GetComponent<PlayerController>().money, 100)) {
+        if (CanAfford(playerController.money, 100)) {
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);

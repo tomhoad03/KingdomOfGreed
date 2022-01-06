@@ -5,6 +5,8 @@ using UnityEngine;
 public class GregController : MonoBehaviour
 {
     private GameObject player;
+    private PlayerController playerController;
+
     public GameObject enemy;
 
     private int baseKilled;
@@ -12,13 +14,14 @@ public class GregController : MonoBehaviour
 
     void Start() {
         player = GameObject.Find("Player");
+        playerController = player.GetComponent<PlayerController>();
     }
 
     void Update()
     {   
         if (!spawnEnemies && this.GetComponent<NPCController>().questStage == 2) {
             spawnEnemies = true;
-            baseKilled = player.GetComponent<PlayerController>().enemiesKilled;
+            baseKilled = playerController.enemiesKilled;
 
             GameObject enemy1 = Instantiate(enemy, new Vector3(5, (float) 0, 0), Quaternion.identity) as GameObject;
             GameObject enemy2 = Instantiate(enemy, new Vector3(5, (float) 2, 0), Quaternion.identity) as GameObject;
@@ -28,7 +31,7 @@ public class GregController : MonoBehaviour
             enemy2.transform.parent = GameObject.Find("Enemies").transform;
             enemy3.transform.parent = GameObject.Find("Enemies").transform;
         }
-        if (spawnEnemies && player.GetComponent<PlayerController>().enemiesKilled >= baseKilled + 3) {
+        if (spawnEnemies && playerController.enemiesKilled >= baseKilled + 3) {
             this.GetComponent<NPCController>().completionCondition = true;
         }
     }

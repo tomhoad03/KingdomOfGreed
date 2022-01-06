@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
     private GameObject player;
+    private PlayerController playerController;
+
     private Vector3 playerPos;
     private Vector3 currentPos;
     private bool playerColliding;
@@ -18,6 +20,7 @@ public class EnemyController : MonoBehaviour {
 
     void Start() {
         player = GameObject.Find("Player");
+        playerController = player.GetComponent<PlayerController>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -34,24 +37,24 @@ public class EnemyController : MonoBehaviour {
 
     void Update() {
         if (Input.GetMouseButtonDown(0) && playerColliding) {
-            health = health - player.GetComponent<PlayerController>().damage;
+            health = health - playerController.damage;
             this.GetComponent<SpriteRenderer>().color = Color.red;
             damageIndicatorTime = Time.time + 0.2f;
             
             if (health <= 0) {
-                player.GetComponent<PlayerController>().enemiesKilled += 1;
-                player.GetComponent<PlayerController>().health += 100;
-                player.GetComponent<PlayerController>().money += 50;
+                playerController.enemiesKilled += 1;
+                playerController.health += 100;
+                playerController.money += 50;
                 Destroy(gameObject);
             }
         }
         if (Time.time > damageIndicatorTime) {
             this.GetComponent<SpriteRenderer>().color = Color.cyan;
         }
-        if (Time.time > attackTime && player.GetComponent<PlayerController>().enemyColliding) {
-            player.GetComponent<PlayerController>().health -= damage;
+        if (Time.time > attackTime && playerController.enemyColliding) {
+            playerController.health -= damage;
+            playerController.damageIndicatorTime = Time.time + 0.2f;
             player.GetComponent<SpriteRenderer>().color = Color.red;
-            player.GetComponent<PlayerController>().damageIndicatorTime = Time.time + 0.2f;
             attackTime = Time.time + 2.0f;
         }
 

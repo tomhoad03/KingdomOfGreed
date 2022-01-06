@@ -7,6 +7,8 @@ using TMPro;
 
 public class NPCController : MonoBehaviour {
     private GameObject player;
+    private PlayerController playerController;
+
     private bool playerColliding;
 
     // NPC dialogue collection
@@ -14,11 +16,14 @@ public class NPCController : MonoBehaviour {
     public GameObject guestDisplay;
     public Button guestButton;
 
-    public string[] questAdvertisment = {"Can you lend us a hand?", "Please help us!", "Over here!"};
-    public string[] questIntro = {"Hello traveller!", "We need your help!"};
-    public string[] questUnfinished = {"Have you collected it for us yet?", "Hows that thing you were doing for us going?"};
-    public string[] questCompletion = {"Thank you so much!", "Here, take this for you troubles!"};
-    public string[] questFinished = {"I hope your having a good day hero!", "We are forever grateful hero!"};
+    public string[] questAdvertismentGood = {};
+    public string[] questAdvertismentBad = {};
+    public string[] questIntro = {};
+    public string[] questUnfinishedGood = {};
+    public string[] questUnfinishedBad = {};
+    public string[] questCompletion = {};
+    public string[] questFinishedGood = {};
+    public string[] questFinishedBad = {};
 
     public int questStage = 0;
     public int dialogueCount = 0;
@@ -26,6 +31,7 @@ public class NPCController : MonoBehaviour {
 
     void Start() {
         player = GameObject.Find("Player");
+        playerController = player.GetComponent<PlayerController>();
 
         guestDisplay.SetActive(false);
         guestButton.gameObject.SetActive(false);
@@ -42,7 +48,13 @@ public class NPCController : MonoBehaviour {
             } else {
                 questStage = 2;
                 guestButton.gameObject.SetActive(false);
-                dialogueDisplay.text = questUnfinished[UnityEngine.Random.Range(0, questUnfinished.Length)];
+
+                if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
+                    dialogueDisplay.text = questUnfinishedBad[UnityEngine.Random.Range(0, questUnfinishedBad.Length)];
+                } else {
+                    dialogueDisplay.text = questUnfinishedGood[UnityEngine.Random.Range(0, questUnfinishedGood.Length)];
+                }
+
                 dialogueCount = 0;
             }
         } else if (questStage == 3) {
@@ -51,8 +63,15 @@ public class NPCController : MonoBehaviour {
             } else {
                 questStage = 4;
                 guestButton.gameObject.SetActive(false);
-                dialogueDisplay.text = questFinished[UnityEngine.Random.Range(0, questFinished.Length)];
-                player.GetComponent<PlayerController>().money += 200;
+
+                if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
+                    dialogueDisplay.text = questFinishedBad[UnityEngine.Random.Range(0, questFinishedBad.Length)];
+                } else {
+                    dialogueDisplay.text = questFinishedGood[UnityEngine.Random.Range(0, questFinishedGood.Length)];
+                }
+            
+                playerController.money += 200;
+                playerController.questsCompleted++;
             }
         }
     }
@@ -61,21 +80,33 @@ public class NPCController : MonoBehaviour {
         if (other.gameObject.name == "Player") {
             switch (questStage) {
                 case 0:
-                    dialogueDisplay.text = questAdvertisment[UnityEngine.Random.Range(0, questAdvertisment.Length)];
+                    if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
+                        dialogueDisplay.text = questAdvertismentBad[UnityEngine.Random.Range(0, questAdvertismentBad.Length)];
+                    } else {
+                        dialogueDisplay.text = questAdvertismentGood[UnityEngine.Random.Range(0, questAdvertismentGood.Length)];
+                    }
                     break;
                 case 1:
                     dialogueDisplay.text = questIntro[dialogueCount];
                     guestButton.gameObject.SetActive(true);
                     break;
                 case 2:
-                    dialogueDisplay.text = questUnfinished[UnityEngine.Random.Range(0, questUnfinished.Length)];
+                    if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
+                        dialogueDisplay.text = questUnfinishedBad[UnityEngine.Random.Range(0, questUnfinishedBad.Length)];
+                    } else {
+                        dialogueDisplay.text = questUnfinishedGood[UnityEngine.Random.Range(0, questUnfinishedGood.Length)];
+                    }
                     break;
                 case 3:
                     dialogueDisplay.text = questCompletion[dialogueCount];
                     guestButton.gameObject.SetActive(true);
                     break;
                 case 4:
-                    dialogueDisplay.text = questFinished[UnityEngine.Random.Range(0, questFinished.Length)];
+                    if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
+                        dialogueDisplay.text = questFinishedBad[UnityEngine.Random.Range(0, questFinishedBad.Length)];
+                    } else {
+                        dialogueDisplay.text = questFinishedGood[UnityEngine.Random.Range(0, questFinishedGood.Length)];
+                    }
                     break;
             }
             playerColliding = true;
