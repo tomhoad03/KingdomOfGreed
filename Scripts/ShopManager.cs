@@ -75,6 +75,7 @@ public class ShopManager : MonoBehaviour {
     public void ArmourPurchaseOne() {
         if (CanAfford(playerController.money, 500)) {
             playerController.maxHealth += 500;
+            playerController.speed += 0.002f;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -84,6 +85,7 @@ public class ShopManager : MonoBehaviour {
     public void ArmourPurchaseTwo() {
         if (CanAfford(playerController.money, 500)) {
             playerController.maxHealth += 500;
+            playerController.speed += 0.002f;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);
@@ -93,6 +95,7 @@ public class ShopManager : MonoBehaviour {
     public void ArmourPurchaseThree() {
         if (CanAfford(playerController.money, 500)) {
             playerController.maxHealth += 500;
+            playerController.speed += 0.002f;
             canAfford.SetActive(true);
         } else {
             cannotAfford.SetActive(true);

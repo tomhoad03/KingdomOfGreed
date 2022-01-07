@@ -35,7 +35,7 @@ public class FireController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && playerColliding) {
             health = health - 100;
             
-            if (health <= 0) {
+            if (health <= 0 && playerController.money >= 100) {
                 playerController.money -= 100;
                 Destroy(gameObject);
             }
