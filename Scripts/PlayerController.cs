@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
-    public int money;
+    
     public float speed = 0.018f;
 
     public int damage = 100;
@@ -34,6 +35,26 @@ public class PlayerController : MonoBehaviour {
 
     private Vector3 currentPos;
 
+    // Player materials
+    public int money;
+    public int wood;
+    public int stone;
+    public int chopSpeed;
+
+    // UI game objects
+    public Slider playerHealthSlider;
+    public GameObject chopperUI;
+    public Slider chopperSlider;
+    public Text pressButton; // Above player text 
+    public Text woodText;
+    public Text stoneText;
+    public Text moneyText;
+
+    void Start() {
+        chopperUI.SetActive(false);
+        chopSpeed = 25;
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy") {
             enemyColliding = true;
@@ -50,7 +71,15 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void Update() {
+    void FixedUpdate() {
+
+        // UI
+        woodText.text = wood.ToString();
+        stoneText.text = stone.ToString();
+        moneyText.text = money.ToString();
+
+        playerHealthSlider.value = health;
+         
         // Player movement
         currentPos = this.transform.position;
         switch (Input.GetKey(KeyCode.W), Input.GetKey(KeyCode.A), Input.GetKey(KeyCode.S), Input.GetKey(KeyCode.D)) {
@@ -83,16 +112,24 @@ public class PlayerController : MonoBehaviour {
 
         // Damage indication, death and recovery
         if (Time.time > damageIndicatorTime) {
-            this.GetComponent<SpriteRenderer>().color = Color.white;
+            GameObject sprite = this.transform.GetChild(0).gameObject;
+            for (int i = 0; i < sprite.transform.childCount; i++) {
+                GameObject spritePart = sprite.transform.GetChild(i).gameObject;
+                spritePart.GetComponent<SpriteRenderer>().color = Color.white;
+            }
         }
         if (health <= 0) {
-            this.GetComponent<SpriteRenderer>().color = Color.magenta;
+            GameObject sprite = this.transform.GetChild(0).gameObject;
+            for (int i = 0; i < sprite.transform.childCount; i++) {
+                GameObject spritePart = sprite.transform.GetChild(i).gameObject;
+                spritePart.GetComponent<SpriteRenderer>().color = Color.magenta;
+            }
         }
         if (Time.time > healthRecoveryTime && health < maxHealth) {
             health += 1;
             healthRecoveryTime = Time.time + 0.25f;
         }
-
+        /*
         // Town 1 fire
         if (Time.time > burnTown1Time && !startedTown1Fire) {
             GameObject fire1 = Instantiate(fire, new Vector3(-26.5f, (float) 0, -1), Quaternion.identity) as GameObject;
@@ -106,5 +143,17 @@ public class PlayerController : MonoBehaviour {
         if (startedTown1Fire && firesPutOut > 5 && !arrivedInTown2) {
             helpedTown1 = true;
         }
+        */
+    }
+
+    public void takeDamage(int damageRecieved) {
+        health -= damageRecieved;
+
+        GameObject sprite = this.transform.GetChild(0).gameObject;
+        for (int i = 0; i < sprite.transform.childCount; i++) {
+            GameObject spritePart = sprite.transform.GetChild(i).gameObject;
+            spritePart.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        damageIndicatorTime = Time.time + 0.2f;
     }
 }

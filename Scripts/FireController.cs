@@ -41,9 +41,7 @@ public class FireController : MonoBehaviour
             }
         }
         if (Time.time > attackTime && playerController.fireColliding) {
-            playerController.health -= damage;
-            playerController.damageIndicatorTime = Time.time + 0.2f;
-            player.GetComponent<SpriteRenderer>().color = Color.red;
+            playerController.takeDamage(damage);
             attackTime = Time.time + 1.0f;
         }
     }

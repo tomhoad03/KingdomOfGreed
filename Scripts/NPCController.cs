@@ -9,7 +9,7 @@ public class NPCController : MonoBehaviour {
     private GameObject player;
     private PlayerController playerController;
 
-    private bool playerColliding;
+    public bool playerColliding;
 
     // NPC dialogue collection
     public TextMeshProUGUI dialogueDisplay;

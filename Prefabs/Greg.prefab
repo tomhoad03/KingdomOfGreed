@@ -153,7 +153,7 @@ RectTransform:
   - {fileID: 4597848454102356668}
   - {fileID: 4597848452668710199}
   m_Father: {fileID: 4597848453349436300}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -179,7 +179,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 101
   m_TargetDisplay: 0
 --- !u!114 &4597848452575490983
 MonoBehaviour:
@@ -383,10 +383,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4597848453349436295}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7895831498002029764}
   - {fileID: 4597848452575490981}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -430,8 +431,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 80
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_SortingOrder: 100
+  m_Sprite: {fileID: 0}
   m_Color: {r: 0.1336714, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -439,7 +440,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4597848453349436298
@@ -454,26 +455,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10076fc7ade14fb4fbee344cf3dd268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerColliding: 0
   dialogueDisplay: {fileID: 4597848452668710201}
   guestDisplay: {fileID: 4597848454102356667}
   guestButton: {fileID: 4597848452007952530}
-  questAdvertisment:
-  - Can you lend us a hand?
-  - Please help us!
-  - Over here!
+  questAdvertismentGood:
+  - Hello? Over here!
+  - Please help me stranger!
+  questAdvertismentBad: []
   questIntro:
-  - Hello traveller!
-  - We need your help!
-  - We are being attacked by some wolves from the forest!
-  questUnfinished:
-  - Have you defeated them for us yet?
-  - Are their still any out there?
+  - Where did you come from?
+  - Nevermind, there's no time for that now.
+  - I really need some help dealing with these wolves!
+  questUnfinishedGood:
+  - Watch out!
+  questUnfinishedBad: []
   questCompletion:
-  - Thank you so much!
-  - Here, take this for you troubles!
-  questFinished:
-  - Thank you hero for dealing with our wolf problem!
-  - We are forever grateful hero!
+  - Phew thats such a relief.
+  - This forest seems to make everything really agressive.
+  - Stranger, please watch your step in this town.
+  - A tyrannical king rules over us an none of us can leave!
+  - This forest has some kind of power over us!
+  - If you head NW you might find a town that could use your help.
+  questFinishedGood:
+  - Be wary out there stranger!
+  - It's a dangerous world in this forest!
+  questFinishedBad:
+  - I thought you were here to help us stranger?
   questStage: 0
   dialogueCount: 0
   completionCondition: 0
@@ -503,7 +511,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -529,7 +537,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -618,3 +626,113 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &7898349566809622168
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4597848453349436300}
+    m_Modifications:
+    - target: {fileID: 1080208091668130, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_Name
+      value: Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212088717554698052, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 212198654873878656, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 212439934825565372, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 212460749880102026, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 212468565685073370, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 212508486154887630, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 212538810120102196, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 212815135338593544, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 212893588264716648, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 212924067910851582, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 212947720706563522, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 212972635758934268, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+--- !u!4 &7895831498002029764 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4279284982880860, guid: fabe0c86f03e51842b4b9eb28255180d, type: 3}
+  m_PrefabInstance: {fileID: 7898349566809622168}
+  m_PrefabAsset: {fileID: 0}

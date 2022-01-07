@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour {
+
     private GameObject player;
     private PlayerController playerController;
 
@@ -12,6 +13,9 @@ public class ShopManager : MonoBehaviour {
     public GameObject cannotAfford;
     public GameObject canAfford;
     public Text moneyText;
+
+    public bool ownsHouse0;
+    public bool ownsHouse1;
 
     void Start() {
         player = GameObject.Find("Player");

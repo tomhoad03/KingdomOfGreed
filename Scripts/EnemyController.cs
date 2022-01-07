@@ -38,8 +38,13 @@ public class EnemyController : MonoBehaviour {
     void Update() {
         if (Input.GetMouseButtonDown(0) && playerColliding) {
             health = health - playerController.damage;
-            this.GetComponent<SpriteRenderer>().color = Color.red;
             damageIndicatorTime = Time.time + 0.2f;
+
+            GameObject sprite = this.transform.GetChild(0).gameObject;
+            for (int i = 0; i < sprite.transform.childCount; i++) {
+                GameObject spritePart = sprite.transform.GetChild(i).gameObject;
+                spritePart.GetComponent<SpriteRenderer>().color = Color.red;
+            }
             
             if (health <= 0) {
                 playerController.enemiesKilled += 1;
@@ -49,12 +54,14 @@ public class EnemyController : MonoBehaviour {
             }
         }
         if (Time.time > damageIndicatorTime) {
-            this.GetComponent<SpriteRenderer>().color = Color.cyan;
+            GameObject sprite = this.transform.GetChild(0).gameObject;
+            for (int i = 0; i < sprite.transform.childCount; i++) {
+                GameObject spritePart = sprite.transform.GetChild(i).gameObject;
+                spritePart.GetComponent<SpriteRenderer>().color = Color.white;
+            }
         }
         if (Time.time > attackTime && playerController.enemyColliding) {
-            playerController.health -= damage;
-            playerController.damageIndicatorTime = Time.time + 0.2f;
-            player.GetComponent<SpriteRenderer>().color = Color.red;
+            playerController.takeDamage(damage);
             attackTime = Time.time + 2.0f;
         }
 
