@@ -179,7 +179,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 101
+  m_SortingOrder: 120
   m_TargetDisplay: 0
 --- !u!114 &4597848452575490983
 MonoBehaviour:
@@ -455,18 +455,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10076fc7ade14fb4fbee344cf3dd268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColliding: 0
   dialogueDisplay: {fileID: 4597848452668710201}
   guestDisplay: {fileID: 4597848454102356667}
   guestButton: {fileID: 4597848452007952530}
   questAdvertismentGood:
-  - Hello? Over here!
-  - Please help me stranger!
+  - Can you help me with something?
+  - Over here!
   questAdvertismentBad: []
   questIntro:
   - Where did you come from?
   - Nevermind, there's no time for that now.
-  - I really need some help dealing with these wolves!
+  - Please help me stranger dealing with these enemies!
   questUnfinishedGood:
   - Watch out!
   questUnfinishedBad: []

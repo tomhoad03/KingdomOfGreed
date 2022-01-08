@@ -35,6 +35,13 @@ public class PlayerController : MonoBehaviour {
 
     private Vector3 currentPos;
 
+    public GameObject sword;
+    public GameObject shield;
+    public GameObject swordSwipe;
+    private float attackTime;
+    private float angle;
+    private bool shieldUp;
+
     // Player materials
     public int money;
     public int wood;
@@ -71,7 +78,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void FixedUpdate() {
+    void Update() {
 
         // UI
         woodText.text = wood.ToString();
@@ -127,8 +134,44 @@ public class PlayerController : MonoBehaviour {
         }
         if (Time.time > healthRecoveryTime && health < maxHealth) {
             health += 1;
-            healthRecoveryTime = Time.time + 0.25f;
+            healthRecoveryTime = Time.time + 0.1f;
         }
+        if (Input.GetMouseButtonDown(0) && Time.time > attackTime && !shieldUp) {
+            if (angle > 90 || angle < -90) {
+                sword.transform.rotation = Quaternion.Euler(0, 180, 50);
+            } else {
+                sword.transform.rotation = Quaternion.Euler(0, 0, 50);
+            }
+            
+            swordSwipe.GetComponent<AudioSource>().Play(0);
+            attackTime = Time.time + 0.2f;
+        } else if (Time.time > attackTime) {
+            if (angle > 90 || angle < -90) {
+                sword.transform.rotation = Quaternion.Euler(0, 180, 32);
+            } else {
+                sword.transform.rotation = Quaternion.Euler(0, 0, 32);
+            }
+        }
+        if (Input.GetMouseButton(1)) {
+            shieldUp = true;
+            shield.SetActive(true);
+        } else {
+            shieldUp = false;
+            shield.SetActive(false);
+        }
+
+        // Direction facing
+        Vector2 screenPos = Camera.main.WorldToViewportPoint(this.transform.position);
+        Vector2 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+
+        angle = Mathf.Atan2(screenPos.y - mousePos.y, screenPos.x - mousePos.x) * Mathf.Rad2Deg;
+
+        if (angle > 90 || angle < -90) {
+            this.transform.rotation = Quaternion.Euler(0, 180, 0);
+        } else {
+            this.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
         /*
         // Town 1 fire
         if (Time.time > burnTown1Time && !startedTown1Fire) {
@@ -147,7 +190,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void takeDamage(int damageRecieved) {
-        health -= damageRecieved;
+        if (shieldUp) {
+            health -= damageRecieved / 10;
+            print("blocked");
+        } else {
+            health -= damageRecieved;
+        }
 
         GameObject sprite = this.transform.GetChild(0).gameObject;
         for (int i = 0; i < sprite.transform.childCount; i++) {

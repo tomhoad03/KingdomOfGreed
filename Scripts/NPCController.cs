@@ -9,8 +9,6 @@ public class NPCController : MonoBehaviour {
     private GameObject player;
     private PlayerController playerController;
 
-    public bool playerColliding;
-
     // NPC dialogue collection
     public TextMeshProUGUI dialogueDisplay;
     public GameObject guestDisplay;
@@ -42,12 +40,14 @@ public class NPCController : MonoBehaviour {
     void nextDialogue() {
         dialogueCount++;
 
-        if (questStage == 1) {
+        if (questStage == 0) {
+            questStage = 1;
+            dialogueDisplay.text = questIntro[0];
+        } else if (questStage == 1) {
             if (dialogueCount < questIntro.Length) {
                 dialogueDisplay.text = questIntro[dialogueCount];
             } else {
                 questStage = 2;
-                guestButton.gameObject.SetActive(false);
 
                 if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
                     dialogueDisplay.text = questUnfinishedBad[UnityEngine.Random.Range(0, questUnfinishedBad.Length)];
@@ -56,13 +56,16 @@ public class NPCController : MonoBehaviour {
                 }
 
                 dialogueCount = 0;
+                guestButton.gameObject.SetActive(completionCondition);
             }
+        } else if (questStage == 2 && completionCondition) {
+            questStage = 3;
+            dialogueDisplay.text = questCompletion[0];
         } else if (questStage == 3) {
             if (dialogueCount < questCompletion.Length) {
                 dialogueDisplay.text = questCompletion[dialogueCount];
             } else {
                 questStage = 4;
-                guestButton.gameObject.SetActive(false);
 
                 if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
                     dialogueDisplay.text = questFinishedBad[UnityEngine.Random.Range(0, questFinishedBad.Length)];
@@ -72,6 +75,7 @@ public class NPCController : MonoBehaviour {
             
                 playerController.money += 200;
                 playerController.questsCompleted++;
+                guestButton.gameObject.SetActive(false);
             }
         }
     }
@@ -85,6 +89,7 @@ public class NPCController : MonoBehaviour {
                     } else {
                         dialogueDisplay.text = questAdvertismentGood[UnityEngine.Random.Range(0, questAdvertismentGood.Length)];
                     }
+                    guestButton.gameObject.SetActive(true);
                     break;
                 case 1:
                     dialogueDisplay.text = questIntro[dialogueCount];
@@ -96,6 +101,7 @@ public class NPCController : MonoBehaviour {
                     } else {
                         dialogueDisplay.text = questUnfinishedGood[UnityEngine.Random.Range(0, questUnfinishedGood.Length)];
                     }
+                    guestButton.gameObject.SetActive(completionCondition);
                     break;
                 case 3:
                     dialogueDisplay.text = questCompletion[dialogueCount];
@@ -109,7 +115,6 @@ public class NPCController : MonoBehaviour {
                     }
                     break;
             }
-            playerColliding = true;
             guestDisplay.SetActive(true);
         }
     }
@@ -117,23 +122,8 @@ public class NPCController : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.name == "Player") {
             dialogueDisplay.text = "";
-            playerColliding = false;
             guestDisplay.SetActive(false);
             guestButton.gameObject.SetActive(false);
-        }
-    }
-
-    void Update() {
-        if (Input.GetMouseButton(0) && playerColliding) {
-            if (questStage == 0) {
-                questStage = 1;
-                dialogueDisplay.text = questIntro[0];
-                guestButton.gameObject.SetActive(true);
-            } else if (questStage == 2 && completionCondition) {
-                questStage = 3;
-                dialogueDisplay.text = questCompletion[0];
-                guestButton.gameObject.SetActive(true);
-            }
         }
     }
 }

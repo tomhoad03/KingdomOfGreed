@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour {
         }
         if (Time.time > attackTime && playerController.enemyColliding) {
             playerController.takeDamage(damage);
-            attackTime = Time.time + 2.0f;
+            attackTime = Time.time + UnityEngine.Random.Range(1.2f, 2.0f);
         }
 
         currentPos = this.transform.position;

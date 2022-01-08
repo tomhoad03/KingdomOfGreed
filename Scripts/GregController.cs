@@ -23,9 +23,9 @@ public class GregController : MonoBehaviour
             spawnEnemies = true;
             baseKilled = playerController.enemiesKilled;
 
-            GameObject enemy1 = Instantiate(enemy, new Vector3(5, (float) 0, 0), Quaternion.identity) as GameObject;
-            GameObject enemy2 = Instantiate(enemy, new Vector3(5, (float) 2, 0), Quaternion.identity) as GameObject;
-            GameObject enemy3 = Instantiate(enemy, new Vector3(5, (float) 4, 0), Quaternion.identity) as GameObject;
+            GameObject enemy1 = Instantiate(enemy, new Vector3(24, (float) -56, 0), Quaternion.identity) as GameObject;
+            GameObject enemy2 = Instantiate(enemy, new Vector3(28, (float) -56, 0), Quaternion.identity) as GameObject;
+            GameObject enemy3 = Instantiate(enemy, new Vector3(32, (float) -56, 0), Quaternion.identity) as GameObject;
 
             enemy1.transform.parent = GameObject.Find("Enemies").transform;
             enemy2.transform.parent = GameObject.Find("Enemies").transform;
