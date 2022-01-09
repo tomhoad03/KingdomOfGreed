@@ -33,6 +33,7 @@ public class KingController : MonoBehaviour {
     public GameObject oldKing;
 
     public TextMeshProUGUI hintText;
+    public GameObject castleBridge;
     
     void Start() {
         player = GameObject.Find("Player");
@@ -147,6 +148,7 @@ public class KingController : MonoBehaviour {
         if (playerController.questsCompleted == 1 && !playerOfferMade) {
             playerOfferMade = true;
             hintText.text = "The king has made you an offer. Go see him.";
+            castleBridge.SetActive(false);
         }
         if (playerOfferAccepted && playerController.oldKingDead) {
             GameObject king = Instantiate(oldKing, new Vector3(24, (float) 28, 0), Quaternion.identity) as GameObject;

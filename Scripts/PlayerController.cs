@@ -89,36 +89,6 @@ public class PlayerController : MonoBehaviour {
         moneyText.text = money.ToString();
 
         playerHealthSlider.value = health;
-         
-        // Player movement
-        currentPos = this.transform.position;
-        switch (Input.GetKey(KeyCode.W), Input.GetKey(KeyCode.A), Input.GetKey(KeyCode.S), Input.GetKey(KeyCode.D)) {
-            case (true, true, false, false):
-                currentPos = new Vector3(currentPos.x - speed / 1.41f, currentPos.y + speed / 1.41f, currentPos.z);
-                break;
-            case (true, false, false, true):
-                currentPos = new Vector3(currentPos.x + speed / 1.41f, currentPos.y + speed / 1.41f, currentPos.z);
-                break;
-            case (false, true, true, false):
-                currentPos = new Vector3(currentPos.x - speed / 1.41f, currentPos.y - speed / 1.41f, currentPos.z);
-                break;
-            case (false, false, true, true):
-                currentPos = new Vector3(currentPos.x + speed / 1.41f, currentPos.y - speed / 1.41f, currentPos.z);
-                break;
-            case (true, false, false, false):
-                currentPos = new Vector3(currentPos.x, currentPos.y + speed, currentPos.z);
-                break;
-            case (false, true, false, false):
-                currentPos = new Vector3(currentPos.x - speed, currentPos.y, currentPos.z);
-                break;
-            case (false, false, true, false):
-                currentPos = new Vector3(currentPos.x, currentPos.y - speed, currentPos.z);
-                break;
-            case (false, false, false, true):
-                currentPos = new Vector3(currentPos.x + speed, currentPos.y, currentPos.z);
-                break;
-        }
-        this.transform.position = currentPos;
 
         // Damage indication, death and recovery
         if (Time.time > damageIndicatorTime) {
@@ -190,6 +160,38 @@ public class PlayerController : MonoBehaviour {
             helpedTown1 = true;
         }
         */
+    }
+
+    void FixedUpdate() {
+        // Player movement
+        currentPos = this.transform.position;
+        switch (Input.GetKey(KeyCode.W), Input.GetKey(KeyCode.A), Input.GetKey(KeyCode.S), Input.GetKey(KeyCode.D)) {
+            case (true, true, false, false):
+                currentPos = new Vector3(currentPos.x - speed / 1.41f, currentPos.y + speed / 1.41f, currentPos.z);
+                break;
+            case (true, false, false, true):
+                currentPos = new Vector3(currentPos.x + speed / 1.41f, currentPos.y + speed / 1.41f, currentPos.z);
+                break;
+            case (false, true, true, false):
+                currentPos = new Vector3(currentPos.x - speed / 1.41f, currentPos.y - speed / 1.41f, currentPos.z);
+                break;
+            case (false, false, true, true):
+                currentPos = new Vector3(currentPos.x + speed / 1.41f, currentPos.y - speed / 1.41f, currentPos.z);
+                break;
+            case (true, false, false, false):
+                currentPos = new Vector3(currentPos.x, currentPos.y + speed, currentPos.z);
+                break;
+            case (false, true, false, false):
+                currentPos = new Vector3(currentPos.x - speed, currentPos.y, currentPos.z);
+                break;
+            case (false, false, true, false):
+                currentPos = new Vector3(currentPos.x, currentPos.y - speed, currentPos.z);
+                break;
+            case (false, false, false, true):
+                currentPos = new Vector3(currentPos.x + speed, currentPos.y, currentPos.z);
+                break;
+        }
+        this.transform.position = currentPos;
     }
 
     public void takeDamage(int damageRecieved) {

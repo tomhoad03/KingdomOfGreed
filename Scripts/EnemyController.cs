@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour {
     private Vector3 currentPos;
     private bool playerColliding;
 
-    private float speed = 0.0075f;
+    public float speed = 0.05f;
     private float attackTime;
     public float damageIndicatorTime;
 
@@ -64,24 +64,26 @@ public class EnemyController : MonoBehaviour {
             playerController.takeDamage(damage);
             attackTime = Time.time + UnityEngine.Random.Range(1.2f, 2.0f);
         }
+    }
 
+    void FixedUpdate () {
         currentPos = this.transform.position;
         playerPos = player.transform.position;
 
         switch (playerPos.x < currentPos.x, playerPos.y < currentPos.y) {
-                case (true, true):
-                    currentPos = new Vector3(currentPos.x - speed / 1.41f, currentPos.y - speed / 1.41f, currentPos.z);
-                    break;
-                case (true, false):
-                    currentPos = new Vector3(currentPos.x - speed / 1.41f, currentPos.y + speed / 1.41f, currentPos.z);
-                    break;
-                case (false, true):
-                    currentPos = new Vector3(currentPos.x + speed / 1.41f, currentPos.y - speed / 1.41f, currentPos.z);
-                    break;
-                case (false, false):
-                    currentPos = new Vector3(currentPos.x + speed / 1.41f, currentPos.y + speed / 1.41f, currentPos.z);
-                    break;
-            }
-            this.transform.position = currentPos;
+            case (true, true):
+                currentPos = new Vector3(currentPos.x - speed / 1.41f, currentPos.y - speed / 1.41f, currentPos.z);
+                break;
+            case (true, false):
+                currentPos = new Vector3(currentPos.x - speed / 1.41f, currentPos.y + speed / 1.41f, currentPos.z);
+                break;
+            case (false, true):
+                currentPos = new Vector3(currentPos.x + speed / 1.41f, currentPos.y - speed / 1.41f, currentPos.z);
+                break;
+            case (false, false):
+                currentPos = new Vector3(currentPos.x + speed / 1.41f, currentPos.y + speed / 1.41f, currentPos.z);
+                break;
+        }
+        this.transform.position = currentPos;
     }
 }
