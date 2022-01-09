@@ -457,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueDisplay: {fileID: 4597848452668710201}
   guestDisplay: {fileID: 4597848454102356667}
-  guestButton: {fileID: 4597848452007952530}
+  questButton: {fileID: 4597848452007952530}
   questAdvertismentGood:
   - Can you help me with something?
   - Over here!
@@ -497,6 +497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 128736783335293592, guid: c0cde6e44d994a848a009412ac110f5c, type: 3}
+  introBridge: {fileID: 0}
+  hintText: {fileID: 0}
 --- !u!61 &4597848453349436297
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -16,15 +16,18 @@ public class TreeScript : MonoBehaviour {
     private float treeY;
     private float playerX;
     private float playerY;
+    private float UItimer;
 
     void Start() {
         player = GameObject.Find("Player");
         float chopValue = 0;
+        UItimer = 0f;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
 
         if (other.gameObject.name == "Player") {
+            Debug.Log("Hit registered");
             treePos = playerPos;
             treeX = treePos.x;
             treeY = treePos.y;
@@ -38,18 +41,26 @@ public class TreeScript : MonoBehaviour {
         playerX = playerPos.x;
         playerY = playerPos.y;
 
-        if ((treeX - playerX < 2 && treeX - playerX > -2) && (treeY - playerY < 2 && treeY - playerY > -2)) {
-            atTree = true;
-        } else {
-            atTree = false;
-            player.GetComponent<PlayerController>().chopperUI.SetActive(false);
-        }
+        /** What happened was, the script worked perfect with one tree, and then the 
+         *  other trees not having the player near them would have atTree = false and 
+         *  it fucked everything the UI timer is now necessary to make the UI work 
+         *  near enough perfect I literally cannot think of any other way to do this 
+         */
 
         // All of these setActives are actually necessary
         if (atTree) {
             
-            player.GetComponent<PlayerController>().pressButton.gameObject.SetActive(true);
-
+            UItimer += Time.deltaTime;
+            if (UItimer < 5) {
+                player.GetComponent<PlayerController>().pressButton.gameObject.SetActive(true);
+                Debug.Log(UItimer);
+            } else {
+                player.GetComponent<PlayerController>().pressButton.gameObject.SetActive(false);
+                player.GetComponent<PlayerController>().chopperUI.SetActive(false);
+                UItimer = 0f;
+                atTree = false;
+            }
+     
             if (Input.GetKey(KeyCode.P)) {
 
                 player.GetComponent<PlayerController>().pressButton.gameObject.SetActive(false);
@@ -66,12 +77,11 @@ public class TreeScript : MonoBehaviour {
                     atTree = false;
                 }
             } else {
-                player.GetComponent<PlayerController>().pressButton.gameObject.SetActive(true);
-                chopValue = 0;
                 player.GetComponent<PlayerController>().chopperUI.SetActive(false);
+                chopValue = 0;
             }
         } else {
-            player.GetComponent<PlayerController>().pressButton.gameObject.SetActive(false);
+            
         }
     }
 }

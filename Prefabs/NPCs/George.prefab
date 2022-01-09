@@ -532,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueDisplay: {fileID: 1683319404868769875}
   guestDisplay: {fileID: 1683319406283053009}
-  guestButton: {fileID: 1683319405559137784}
+  questButton: {fileID: 1683319405559137784}
   questAdvertismentGood:
   - Can you help me with something?
   - Over here!

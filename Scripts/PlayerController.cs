@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour {
     
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
     private float healthRecoveryTime;
     public bool enemyColliding;
     public bool fireColliding;
+    public bool oldKingDead;
 
     public GameObject fire;
     private bool startedTown1Fire = false;
@@ -56,10 +58,11 @@ public class PlayerController : MonoBehaviour {
     public Text woodText;
     public Text stoneText;
     public Text moneyText;
+    public TextMeshProUGUI hintText;
 
     void Start() {
         chopperUI.SetActive(false);
-        chopSpeed = 25;
+        chopSpeed = 50;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -192,7 +195,6 @@ public class PlayerController : MonoBehaviour {
     public void takeDamage(int damageRecieved) {
         if (shieldUp) {
             health -= damageRecieved / 10;
-            print("blocked");
         } else {
             health -= damageRecieved;
         }

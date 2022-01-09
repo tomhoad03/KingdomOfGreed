@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GregController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class GregController : MonoBehaviour
 
     private int baseKilled;
     private bool spawnEnemies = false;
+
+    public GameObject introBridge;
+    public TextMeshProUGUI hintText;
+    private bool displayed;
 
     void Start() {
         player = GameObject.Find("Player");
@@ -33,6 +38,11 @@ public class GregController : MonoBehaviour
         }
         if (spawnEnemies && playerController.enemiesKilled >= baseKilled + 3) {
             this.GetComponent<NPCController>().completionCondition = true;
+        }
+        if (this.GetComponent<NPCController>().questStage == 4 && !displayed) {
+            introBridge.SetActive(false);
+            hintText.text = "Venture north-west to the desolate town.";
+            displayed = true;
         }
     }
 }
