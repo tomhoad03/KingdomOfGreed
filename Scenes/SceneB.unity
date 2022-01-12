@@ -189,6 +189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1382855479768376775, guid: d2b8806dcb676f14681396e67447dbe6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4829795861012787657, guid: d2b8806dcb676f14681396e67447dbe6, type: 3}
       propertyPath: hintText
       value: 
@@ -206,36 +210,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 579007497}
     - target: {fileID: 4829795861012787657, guid: d2b8806dcb676f14681396e67447dbe6, type: 3}
-      propertyPath: waterBucket
-      value: 
-      objectReference: {fileID: 1848784328}
-    - target: {fileID: 4829795861012787657, guid: d2b8806dcb676f14681396e67447dbe6, type: 3}
       propertyPath: playerHealthSlider
       value: 
       objectReference: {fileID: 127494308}
-    - target: {fileID: 6930885443963435925, guid: d2b8806dcb676f14681396e67447dbe6, type: 3}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b8806dcb676f14681396e67447dbe6, type: 3}
---- !u!1 &23538382 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1382855479768376775, guid: d2b8806dcb676f14681396e67447dbe6, type: 3}
-  m_PrefabInstance: {fileID: 23538381}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &23538383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23538382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b044b9538804f4f47905e74eab1d80ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &60458641 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8193396986246853223, guid: f98a9a108f6db5e45a03eeb3b8bcbcd0, type: 3}
@@ -501,6 +480,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430716764}
     m_Modifications:
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questUnfinished
+      value: Please, I didn't do anything wrong!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questIntro.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questIntro.Array.data[0]
+      value: When I was young, our town was ruled by the old king.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questIntro.Array.data[1]
+      value: The young folk know only rumour.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questIntro.Array.data[2]
+      value: But I remember that he was murdered in the night.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questIntro.Array.data[3]
+      value: His son took over the thrown.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questIntro.Array.data[4]
+      value: This town has been cursed ever since.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questIntro.Array.data[5]
+      value: Argh! Over there! Ghosts of the old kings!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questCompletion.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questCompletion.Array.data[0]
+      value: Thank you for saving me.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questCompletion.Array.data[1]
+      value: I still struggle to sleep at night.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questCompletion.Array.data[2]
+      value: Take this branch from the large tree.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618848954592345427, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+      propertyPath: questCompletion.Array.data[3]
+      value: Take this branch from the large tree.
+      objectReference: {fileID: 0}
     - target: {fileID: 5618848954592345429, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -547,11 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5618848954592345438, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
       propertyPath: m_Name
-      value: Hagrid
-      objectReference: {fileID: 0}
-    - target: {fileID: 5618848954895738225, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
-      propertyPath: m_Camera
-      value: 
+      value: OldMan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
@@ -882,6 +909,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403d146311d8b9644be8bd4d6c4a2506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &172262241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2662263541585611673, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
+  m_PrefabInstance: {fileID: 1924794667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &172262242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172262241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78788c4467907340955fefa22ce20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &172478257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1207,7 +1251,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 89025444061021043, guid: 6e69bb7118db3534ab16773d6b3f5a99, type: 3}
       propertyPath: questIntro.Array.data[3]
-      value: Could you chop down 3 nearby trees for me?
+      value: Could you chop down 5 nearby trees for me?
       objectReference: {fileID: 0}
     - target: {fileID: 89025444061021045, guid: 6e69bb7118db3534ab16773d6b3f5a99, type: 3}
       propertyPath: m_RootOrder
@@ -1269,7 +1313,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 89025444061021054, guid: 6e69bb7118db3534ab16773d6b3f5a99, type: 3}
   m_PrefabInstance: {fileID: 258969918}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &258969921
+--- !u!114 &258969926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1278,7 +1322,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 258969920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b044b9538804f4f47905e74eab1d80ba, type: 3}
+  m_Script: {fileID: 11500000, guid: a89cf2d13397f9044a72fe130283ad83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &263563718 stripped
@@ -1367,11 +1411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403d146311d8b9644be8bd4d6c4a2506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &350510747 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4367188260484822859, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-  m_PrefabInstance: {fileID: 7906162421832235527}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &355093984 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2837853651250591627, guid: f98a9a108f6db5e45a03eeb3b8bcbcd0, type: 3}
@@ -1501,6 +1540,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a4daa44abdeee4eb4722e037dba86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &409893603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5618848954592345438, guid: 05ecf8d9a95d2b44bb3839f9b0268cc0, type: 3}
+  m_PrefabInstance: {fileID: 114984611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &409893604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409893603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b514f26fee28de44dae5f7d439b739f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 4613489931850295977, guid: c8cc1255e467f97489927d2188af26ff, type: 3}
 --- !u!1 &413463311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5353153570316575545, guid: f98a9a108f6db5e45a03eeb3b8bcbcd0, type: 3}
@@ -1653,17 +1710,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 348051077406846345, guid: 0442a04014cc1a744917630318cc2c48, type: 3}
   m_PrefabInstance: {fileID: 429217687}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &445362263 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4367188261398443394, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-  m_PrefabInstance: {fileID: 7906162421832235527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &453862057 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6960586642043071243, guid: f98a9a108f6db5e45a03eeb3b8bcbcd0, type: 3}
@@ -2237,17 +2283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a4daa44abdeee4eb4722e037dba86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &627497084 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4367188261835694376, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-  m_PrefabInstance: {fileID: 7906162421832235527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &642710802 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 416652337859016946, guid: f98a9a108f6db5e45a03eeb3b8bcbcd0, type: 3}
@@ -2377,11 +2412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a4daa44abdeee4eb4722e037dba86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &654640711 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4367188261006925190, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-  m_PrefabInstance: {fileID: 7906162421832235527}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &661517238 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8235416635247805432, guid: f98a9a108f6db5e45a03eeb3b8bcbcd0, type: 3}
@@ -2770,18 +2800,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeMan
       objectReference: {fileID: 0}
-    - target: {fileID: 389735079613584254, guid: 80f70dc0663f04e49ad3deb7f563dd75, type: 3}
-      propertyPath: m_fontSize
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 389735079613584254, guid: 80f70dc0663f04e49ad3deb7f563dd75, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2105783041221241507, guid: 80f70dc0663f04e49ad3deb7f563dd75, type: 3}
-      propertyPath: king
-      value: 
-      objectReference: {fileID: 1794024909536849330, guid: 294f759be27a0dc468b3b374ea76dd6c, type: 3}
     - target: {fileID: 2105783041221241507, guid: 80f70dc0663f04e49ad3deb7f563dd75, type: 3}
       propertyPath: hintText
       value: 
@@ -2891,17 +2909,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1a4daa44abdeee4eb4722e037dba86d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &799080266 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4367188260975141252, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-  m_PrefabInstance: {fileID: 7906162421832235527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &804500764 stripped
@@ -3066,6 +3073,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1a4daa44abdeee4eb4722e037dba86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &865997053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 459270168797728857, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+  m_PrefabInstance: {fileID: 1994190936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &865997054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865997053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b93d523452232438fe8f0325dc9305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &871520521 stripped
@@ -3716,37 +3740,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 1417343346}
     m_Modifications:
     - target: {fileID: -9180182118496910472, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-      propertyPath: oldKing
-      value: 
-      objectReference: {fileID: 1794024909536849330, guid: 294f759be27a0dc468b3b374ea76dd6c, type: 3}
-    - target: {fileID: -9180182118496910472, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-      propertyPath: badEnemy
-      value: 
-      objectReference: {fileID: 4613489931850295977, guid: c8cc1255e467f97489927d2188af26ff, type: 3}
-    - target: {fileID: -9180182118496910472, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
       propertyPath: hintText
       value: 
       objectReference: {fileID: 152171756}
     - target: {fileID: -9180182118496910472, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-      propertyPath: badOption
-      value: 
-      objectReference: {fileID: 1211684521}
-    - target: {fileID: -9180182118496910472, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-      propertyPath: goodOption
-      value: 
-      objectReference: {fileID: 1211684522}
-    - target: {fileID: -9180182118496910472, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-      propertyPath: kingDisplay
-      value: 
-      objectReference: {fileID: 1211684524}
-    - target: {fileID: -9180182118496910472, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
       propertyPath: castleBridge
       value: 
       objectReference: {fileID: 2013354890}
-    - target: {fileID: -9180182118496910472, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-      propertyPath: dialogueDisplay
-      value: 
-      objectReference: {fileID: 1211684523}
     - target: {fileID: 737055507014216121, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
       propertyPath: m_Name
       value: King
@@ -3795,45 +3795,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7141729674004094343, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-      propertyPath: m_fontSize
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 7141729674004094343, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 24
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
 --- !u!4 &1211684520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4781311281232916507, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-  m_PrefabInstance: {fileID: 1211684519}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1211684521 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8717521610811173579, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-  m_PrefabInstance: {fileID: 1211684519}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1211684522 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4562719152569636380, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-  m_PrefabInstance: {fileID: 1211684519}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1211684523 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7141729674004094343, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
-  m_PrefabInstance: {fileID: 1211684519}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1211684524 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 10829540144760441, guid: a72d189b729ad3a43aef3ed9e13522d5, type: 3}
   m_PrefabInstance: {fileID: 1211684519}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1224449417 stripped
@@ -4654,11 +4620,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1683319406872276710, guid: 20fa48fb9f39d6d49a52876e908c405a, type: 3}
   m_PrefabInstance: {fileID: 1432188236}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1432231529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4367188259980944142, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-  m_PrefabInstance: {fileID: 7906162421832235527}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1445654196 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5432144737568945760, guid: f98a9a108f6db5e45a03eeb3b8bcbcd0, type: 3}
@@ -4983,36 +4944,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 152171756}
     - target: {fileID: 6788040179615639492, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
-      propertyPath: badOption
-      value: 
-      objectReference: {fileID: 1583063316}
-    - target: {fileID: 6788040179615639492, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
-      propertyPath: goodOption
-      value: 
-      objectReference: {fileID: 1583063317}
-    - target: {fileID: 6788040179615639492, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
       propertyPath: leftBridge
       value: 
       objectReference: {fileID: 1373186868}
-    - target: {fileID: 6788040179615639492, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
-      propertyPath: rightBridge
-      value: 
-      objectReference: {fileID: 191974140}
-    - target: {fileID: 6788040179615639492, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
-      propertyPath: introDisplay
-      value: 
-      objectReference: {fileID: 1583063318}
     - target: {fileID: 6788040179615639495, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
       propertyPath: m_Name
       value: IntroNPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 6788040180534229283, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
-      propertyPath: m_fontSize
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 6788040180534229283, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 6788040180890254132, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
       propertyPath: m_RootOrder
@@ -5063,21 +5000,6 @@ PrefabInstance:
 --- !u!4 &1583063315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6788040180890254132, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
-  m_PrefabInstance: {fileID: 1583063314}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1583063316 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6788040179076575516, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
-  m_PrefabInstance: {fileID: 1583063314}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1583063317 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6788040179497300632, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
-  m_PrefabInstance: {fileID: 1583063314}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1583063318 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6788040179145674745, guid: 3e147c0ec51d8ef4099db2b03b230073, type: 3}
   m_PrefabInstance: {fileID: 1583063314}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589244945 stripped
@@ -5388,6 +5310,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 320542525896496768, guid: 5174a222811b73e4faa93fa26e2141bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4451492784939698480, guid: 5174a222811b73e4faa93fa26e2141bd, type: 3}
       propertyPath: m_Name
       value: ShopMain
@@ -5531,13 +5457,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430716764}
     m_Modifications:
-    - target: {fileID: 6569258728308151134, guid: bc330ed062db82846ae763f984b5341b, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6569258730152430449, guid: bc330ed062db82846ae763f984b5341b, type: 3}
       propertyPath: m_Name
-      value: Harry
+      value: Blacksmith
       objectReference: {fileID: 0}
     - target: {fileID: 6569258730152430458, guid: bc330ed062db82846ae763f984b5341b, type: 3}
       propertyPath: m_RootOrder
@@ -5583,6 +5505,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6569258730152430460, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+      propertyPath: questUnfinished
+      value: Could you get me some wood and stone please?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569258730152430460, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+      propertyPath: questIntro.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569258730152430460, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+      propertyPath: questIntro.Array.data[0]
+      value: Oww my hand!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569258730152430460, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+      propertyPath: questIntro.Array.data[1]
+      value: I really could use some help getting some new tools.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569258730152430460, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+      propertyPath: questIntro.Array.data[2]
+      value: Would you be able to make me some?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569258730152430460, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+      propertyPath: questIntro.Array.data[3]
+      value: I need 300 wood and 300 stone please!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569258730152430460, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+      propertyPath: questCompletion.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569258730152430460, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+      propertyPath: questCompletion.Array.data[0]
+      value: Thank you so much!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569258730152430460, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+      propertyPath: questCompletion.Array.data[1]
+      value: Here, let me sharpen your sword in return
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc330ed062db82846ae763f984b5341b, type: 3}
 --- !u!4 &1708819943 stripped
@@ -5590,6 +5548,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6569258730152430458, guid: bc330ed062db82846ae763f984b5341b, type: 3}
   m_PrefabInstance: {fileID: 1708819942}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1728118883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6569258730152430449, guid: bc330ed062db82846ae763f984b5341b, type: 3}
+  m_PrefabInstance: {fileID: 1708819942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1728118888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728118883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f4dc6240504de48a4843483a0da94b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1742121753 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8013579472948664466, guid: f98a9a108f6db5e45a03eeb3b8bcbcd0, type: 3}
@@ -5662,11 +5637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403d146311d8b9644be8bd4d6c4a2506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1848784328 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5424404683138944211, guid: d2b8806dcb676f14681396e67447dbe6, type: 3}
-  m_PrefabInstance: {fileID: 23538381}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1855137978 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4532040520004516171, guid: f98a9a108f6db5e45a03eeb3b8bcbcd0, type: 3}
@@ -5975,10 +5945,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430716764}
     m_Modifications:
-    - target: {fileID: 2662263539669963702, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2662263541585611666, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6023,9 +5989,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2662263541585611668, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
+      propertyPath: questUnfinished
+      value: Have you mined enough stone yet?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662263541585611668, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
+      propertyPath: questIntro.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662263541585611668, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
+      propertyPath: questIntro.Array.data[0]
+      value: Phew this is tough work.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662263541585611668, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
+      propertyPath: questIntro.Array.data[1]
+      value: Would you be able to lend a hand please.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662263541585611668, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
+      propertyPath: questIntro.Array.data[2]
+      value: Can you mine at least 5 patches of stone?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662263541585611668, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
+      propertyPath: questCompletion.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662263541585611668, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
+      propertyPath: questCompletion.Array.data[0]
+      value: Thanks for that.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662263541585611668, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
+      propertyPath: questCompletion.Array.data[1]
+      value: Let me show you how to get more stone per swing.
+      objectReference: {fileID: 0}
     - target: {fileID: 2662263541585611673, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
       propertyPath: m_Name
-      value: Henry
+      value: Miner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f768d7b8b21fcaf4c8612dddd410037c, type: 3}
@@ -6176,13 +6174,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 459270168797728852, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+      propertyPath: questUnfinished
+      value: How are my family doing?
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270168797728852, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+      propertyPath: questIntro.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270168797728852, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+      propertyPath: questIntro.Array.data[0]
+      value: I hear that you've been helping people.
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270168797728852, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+      propertyPath: questIntro.Array.data[1]
+      value: I could really use some help.
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270168797728852, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+      propertyPath: questIntro.Array.data[2]
+      value: I came over to this town for work but left my family behind.
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270168797728852, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+      propertyPath: questIntro.Array.data[3]
+      value: I I know they are living in nice conditions I'd feel a lot better.
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270168797728852, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+      propertyPath: questIntro.Array.data[4]
+      value: Can you upgrade the town to level 3 for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270168797728852, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+      propertyPath: questCompletion.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 459270168797728852, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
+      propertyPath: questCompletion.Array.data[0]
+      value: Thanks so much! Here, take this gold for your help.
+      objectReference: {fileID: 0}
     - target: {fileID: 459270168797728857, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
       propertyPath: m_Name
-      value: Hester
-      objectReference: {fileID: 0}
-    - target: {fileID: 459270170644367478, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
-      propertyPath: m_Camera
-      value: 
+      value: CloakedVillager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e8761e7da79b154f9288b60031ff7d5, type: 3}
@@ -11605,17 +11635,6 @@ MonoBehaviour:
   fishing: 0
   dialogBox: {fileID: 0}
   dialogText: {fileID: 0}
---- !u!114 &2140114493 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4367188259941462550, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-  m_PrefabInstance: {fileID: 7906162421832235527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &31342060767738644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11623,10 +11642,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 31342060622033384, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 31342060962182067, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
       propertyPath: m_Name
       value: BridgeColliders
@@ -11674,34 +11689,6 @@ PrefabInstance:
     - target: {fileID: 31342060962182076, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 31342061438869663, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.540001
-      objectReference: {fileID: 0}
-    - target: {fileID: 31342061438869663, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.699999
-      objectReference: {fileID: 0}
-    - target: {fileID: 31342061438869663, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.34900495
-      objectReference: {fileID: 0}
-    - target: {fileID: 31342061438869663, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 31342061438869663, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 31342061438869663, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.9371209
-      objectReference: {fileID: 0}
-    - target: {fileID: 31342061438869663, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -139.147
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db2211a11d3035f4bb0191d4a6832eb5, type: 3}
@@ -11927,81 +11914,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2651210522444175605, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: hintText
-      value: 
-      objectReference: {fileID: 152171756}
-    - target: {fileID: 2651210522444175605, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: midBridge
-      value: 
-      objectReference: {fileID: 2027394264}
-    - target: {fileID: 2651210522444175605, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: leftBridge
-      value: 
-      objectReference: {fileID: 1373186868}
-    - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: fire
-      value: 
-      objectReference: {fileID: 6841019342827856697, guid: 1ecbdd01c41552b47b25d2ddcc408e6f, type: 3}
     - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
       propertyPath: hintText
       value: 
       objectReference: {fileID: 152171756}
     - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: badOption
-      value: 
-      objectReference: {fileID: 350510747}
-    - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
       propertyPath: midBridge
       value: 
       objectReference: {fileID: 2027394264}
-    - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: goodOption
-      value: 
-      objectReference: {fileID: 654640711}
-    - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: rebelEnemy
-      value: 
-      objectReference: {fileID: 2049997750755189265, guid: 0df19d2bef88a054794452ee69bb777f, type: 3}
-    - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: fireDisplay
-      value: 
-      objectReference: {fileID: 1432231529}
-    - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: questButton
-      value: 
-      objectReference: {fileID: 445362263}
     - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
       propertyPath: rightBridge
       value: 
       objectReference: {fileID: 191974140}
-    - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: badOptionBtn
-      value: 
-      objectReference: {fileID: 2140114493}
-    - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: goodOptionBtn
-      value: 
-      objectReference: {fileID: 799080266}
-    - target: {fileID: 2827364781653007285, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: dialogueDisplay
-      value: 
-      objectReference: {fileID: 627497084}
     - target: {fileID: 4367188260943407720, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
       propertyPath: m_Name
       value: FireMan
-      objectReference: {fileID: 0}
-    - target: {fileID: 4367188261027227126, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: m_text
-      value: Hand over your money.
-      objectReference: {fileID: 0}
-    - target: {fileID: 4367188261221314438, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: m_SortingOrder
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 4367188261806125920, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}
-      propertyPath: m_text
-      value: Refuse to pay.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad52f09485f1022449d4c50dd4ab4249, type: 3}

@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 89025444061021043}
   - component: {fileID: 89025444061021040}
   - component: {fileID: 8746454083850833111}
+  - component: {fileID: 258969921}
   m_Layer: 0
   m_Name: Chef
   m_TagString: NPC
@@ -530,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10076fc7ade14fb4fbee344cf3dd268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
   dialogueDisplay: {fileID: 89025442323346880}
   guestDisplay: {fileID: 89025443706698306}
   questButton: {fileID: 89025442710939755}
@@ -537,7 +539,7 @@ MonoBehaviour:
   - This tastes disgusting...
   - Sorry I didn't see you there.
   - I'm struggling to cook good food in these conditions.
-  - Could you chop down some trees for me?
+  - Could you chop down 3 nearby trees for me?
   - I need to make some space of for a new restuarant.
   questUnfinished: Can you clear some nearby trees for me?
   questCompletion:
@@ -598,6 +600,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &258969921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89025444061021054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b044b9538804f4f47905e74eab1d80ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3568645629167422489
 PrefabInstance:
   m_ObjectHideFlags: 0

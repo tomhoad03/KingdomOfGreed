@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour {
     private float attackTime;
     private float angle;
     private bool shieldUp;
+    public int damageBlockFactor = 5;
+    public float regenTime = 0.1f;
 
     // Player materials
     public int money;
@@ -112,7 +114,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (Time.time > healthRecoveryTime && health < maxHealth) {
             health += 1;
-            healthRecoveryTime = Time.time + 0.1f;
+            healthRecoveryTime = Time.time + regenTime;
         }
         if (Input.GetMouseButtonDown(0) && Time.time > attackTime && !shieldUp && enemyColliding) {
             if (angle > 90 || angle < -90) {
@@ -189,7 +191,7 @@ public class PlayerController : MonoBehaviour {
 
     public void takeDamage(int damageRecieved) {
         if (shieldUp) {
-            health -= damageRecieved / 10;
+            health -= damageRecieved / damageBlockFactor;
         } else {
             health -= damageRecieved;
         }

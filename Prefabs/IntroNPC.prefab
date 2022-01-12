@@ -1076,7 +1076,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6788040179615639495}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.34, y: -49.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1200,18 +1200,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b562a72bf375844bd8d7e4d5c21af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColliding: 0
   dialogueDisplay: {fileID: 6788040180534229283}
-  introDisplay: {fileID: 0}
-  goodOption: {fileID: 6788040180449697106}
-  badOption: {fileID: 6788040179364220157}
+  introDisplay: {fileID: 6788040179145674745}
+  goodOption: {fileID: 6788040179497300632}
+  badOption: {fileID: 6788040179076575516}
   questButton: {fileID: 6788040180155537154}
   goodOptionBtn: {fileID: 6788040180449697104}
   badOptionBtn: {fileID: 6788040179364220155}
   enemy: {fileID: 2931314459525563909, guid: f483d86bb20d18244a077e9e41f2d637, type: 3}
   hintText: {fileID: 0}
   leftBridge: {fileID: 0}
-  rightBridge: {fileID: 0}
 --- !u!1 &6788040179625894627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,8 +1912,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

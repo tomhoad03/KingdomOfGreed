@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChefController : MonoBehaviour
+public class MinerController : MonoBehaviour
 {
     private GameObject player;
     private NPCController npcController;
     private PlayerController playerController;
     private bool questGiven = false;
     private bool questCompleted = false;
-    private int treeCount;
+    private int stoneCount;
 
     void Start() {
         player = GameObject.Find("Player");
@@ -20,8 +20,8 @@ public class ChefController : MonoBehaviour
     void Update() {
         if ((npcController.questStage == 2) && !questGiven) {
             questGiven = true;
-            treeCount = playerController.treesChoppedDown;
-        } else if (questGiven && (playerController.treesChoppedDown > treeCount + 5) && !questCompleted) {
+            stoneCount = playerController.stoneMined;
+        } else if (questGiven && (playerController.stoneMined > stoneCount + 5) && !questCompleted) {
             npcController.completionCondition = true;
             npcController.playerController.questsCompleted++;
             playerController.chopSpeed += 10;

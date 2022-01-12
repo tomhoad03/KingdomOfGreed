@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 459270168797728855}
   - component: {fileID: 9079901456698728432}
   m_Layer: 0
-  m_Name: Hester
+  m_Name: CloakedVillager
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459270168797728857}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 39.1, y: -31.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -99,17 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10076fc7ade14fb4fbee344cf3dd268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
   dialogueDisplay: {fileID: 459270170817488615}
   guestDisplay: {fileID: 459270169521170789}
   questButton: {fileID: 459270170136034124}
-  questAdvertismentGood: []
-  questAdvertismentBad: []
   questIntro: []
-  questUnfinishedGood: []
-  questUnfinishedBad: []
+  questUnfinished: 
   questCompletion: []
-  questFinishedGood: []
-  questFinishedBad: []
   questStage: 0
   dialogueCount: 0
   completionCondition: 0

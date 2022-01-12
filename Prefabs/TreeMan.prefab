@@ -1083,7 +1083,7 @@ MonoBehaviour:
   goodOptionBtn: {fileID: 389735078922900434}
   badOptionBtn: {fileID: 389735077720457280}
   knight: {fileID: 5221625775784581477, guid: e03313d2e6896f0479d7b6592bc90c0a, type: 3}
-  king: {fileID: 0}
+  king: {fileID: 1794024909536849330, guid: 294f759be27a0dc468b3b374ea76dd6c, type: 3}
   hintText: {fileID: 0}
   midBridge: {fileID: 0}
   leftBridge: {fileID: 0}
@@ -1777,8 +1777,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

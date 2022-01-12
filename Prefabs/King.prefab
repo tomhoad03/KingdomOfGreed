@@ -183,7 +183,10 @@ MonoBehaviour:
   goodOptionBtn: {fileID: 5326392530840588051}
   badOptionBtn: {fileID: 1568663963790265806}
   goodEnemy: {fileID: 3399460888078517433, guid: a1c2dfc0c01dcb945b8da28fe1947594, type: 3}
-  badEnemy: {fileID: 128736783335293592, guid: c0cde6e44d994a848a009412ac110f5c, type: 3}
+  badEnemy: {fileID: 4613489931850295977, guid: c8cc1255e467f97489927d2188af26ff, type: 3}
+  oldKing: {fileID: 1794024909536849330, guid: 294f759be27a0dc468b3b374ea76dd6c, type: 3}
+  hintText: {fileID: 0}
+  castleBridge: {fileID: 0}
 --- !u!61 &3385539662521109612
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -779,8 +782,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
