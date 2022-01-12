@@ -25,6 +25,7 @@ public class MinerController : MonoBehaviour
             npcController.completionCondition = true;
             npcController.playerController.questsCompleted++;
             playerController.chopSpeed += 10;
+            playerController.money += 250;
             questCompleted = true;
         }
     }

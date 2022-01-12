@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OldManController : MonoBehaviour
+public class FighterController : MonoBehaviour
 {
     private GameObject player;
     private NPCController npcController;
@@ -10,7 +10,7 @@ public class OldManController : MonoBehaviour
     private bool questGiven = false;
     private bool questCompleted = false;
     private int enemiesKilled;
-    public GameObject ghost;
+    public GameObject vampire;
 
     void Start() {
         player = GameObject.Find("Player");
@@ -23,11 +23,11 @@ public class OldManController : MonoBehaviour
             questGiven = true;
             enemiesKilled = playerController.enemiesKilled;
 
-            GameObject enemy1 = Instantiate(ghost, new Vector3(64, (float) -20, 0), Quaternion.identity) as GameObject;
-            GameObject enemy2 = Instantiate(ghost, new Vector3(60, (float) -20, 0), Quaternion.identity) as GameObject;
-            GameObject enemy3 = Instantiate(ghost, new Vector3(68, (float) -20, 0), Quaternion.identity) as GameObject;
-            GameObject enemy4 = Instantiate(ghost, new Vector3(60, (float) -24, 0), Quaternion.identity) as GameObject;
-            GameObject enemy5 = Instantiate(ghost, new Vector3(68, (float) -24, 0), Quaternion.identity) as GameObject;
+            GameObject enemy1 = Instantiate(vampire, new Vector3(7, (float) -10, 0), Quaternion.identity) as GameObject;
+            GameObject enemy2 = Instantiate(vampire, new Vector3(11, (float) -10, 0), Quaternion.identity) as GameObject;
+            GameObject enemy3 = Instantiate(vampire, new Vector3(15, (float) -10, 0), Quaternion.identity) as GameObject;
+            GameObject enemy4 = Instantiate(vampire, new Vector3(7, (float) -20, 0), Quaternion.identity) as GameObject;
+            GameObject enemy5 = Instantiate(vampire, new Vector3(15, (float) -20, 0), Quaternion.identity) as GameObject;
 
             enemy1.transform.parent = GameObject.Find("Enemies").transform;
             enemy2.transform.parent = GameObject.Find("Enemies").transform;
@@ -37,8 +37,7 @@ public class OldManController : MonoBehaviour
         } else if (questGiven && (playerController.enemiesKilled >= enemiesKilled + 5) && !questCompleted) {
             npcController.completionCondition = true;
             npcController.playerController.questsCompleted++;
-            playerController.damageBlockFactor += 2;
-            playerController.regenTime -= 0.025f;
+            playerController.damage += 20;
             playerController.money += 250;
             questCompleted = true;
         }

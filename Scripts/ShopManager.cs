@@ -96,6 +96,7 @@ public class ShopManager : MonoBehaviour {
             ownsHouse0 = false;
             ownsHouse2 = false;
             ownsHouse3 = false;
+            playerController.housesBought++;
         } else {
             cannotAfford.SetActive(true);
         }
@@ -109,6 +110,7 @@ public class ShopManager : MonoBehaviour {
             ownsHouse2 = true;
             ownsHouse1 = false;
             ownsHouse3 = false;
+            playerController.housesBought++;
         } else {
             cannotAfford.SetActive(true);
         }
@@ -122,6 +124,7 @@ public class ShopManager : MonoBehaviour {
             ownsHouse1 = false;
             ownsHouse3 = true;
             ownsHouse2 = false;
+            playerController.housesBought++;
         } else {
             cannotAfford.SetActive(true);
         }
@@ -228,7 +231,7 @@ public class ShopManager : MonoBehaviour {
 
     // Material purchases
     public void MaterialPurchaseOne() {
-        if (CanAffordWood(playerController.wood, 500)) {
+        if (CanAffordWood(playerController.wood, 100)) {
             canAfford.SetActive(true);
             playerController.money += 100;
         } else {
@@ -237,7 +240,7 @@ public class ShopManager : MonoBehaviour {
     }
 
     public void MaterialPurchaseTwo() {
-        if (CanAffordStone(playerController.stone, 500)) {
+        if (CanAffordStone(playerController.stone, 100)) {
             canAfford.SetActive(true);
             playerController.money += 100;
         } else {
@@ -246,7 +249,7 @@ public class ShopManager : MonoBehaviour {
     }
 
         public void MaterialPurchaseThree() {
-        if (CanAffordStone(playerController.money, 100)) {
+        if (CanAffordMoney(playerController.money, 100)) {
             canAfford.SetActive(true);
             playerController.maxHealth += 100;
         } else {

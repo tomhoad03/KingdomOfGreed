@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlacksmithController : MonoBehaviour
+public class ArcherController : MonoBehaviour
 {
     private GameObject player;
     private NPCController npcController;
     private PlayerController playerController;
     private bool questGiven = false;
     private bool questCompleted = false;
-    private int woodCount;
-    private int stoneCount;
+    private int treesChopped;
 
     void Start() {
         player = GameObject.Find("Player");
@@ -21,12 +20,10 @@ public class BlacksmithController : MonoBehaviour
     void Update() {
         if ((npcController.questStage == 2) && !questGiven) {
             questGiven = true;
-            woodCount = playerController.treesChoppedDown;
-            stoneCount = playerController.stoneMined;
-        } else if (questGiven && (playerController.treesChoppedDown >= woodCount + 3) && (playerController.stoneMined >= stoneCount + 3) && !questCompleted) {
+            treesChopped = playerController.treesChoppedDown;
+        } else if (questGiven && (playerController.treesChoppedDown >= treesChopped + 5) && !questCompleted) {
             npcController.completionCondition = true;
-            playerController.questsCompleted++;
-            playerController.damage += 20;
+            npcController.playerController.questsCompleted++;
             playerController.money += 250;
             questCompleted = true;
         }
