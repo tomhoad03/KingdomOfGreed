@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 5618848954592345427}
   - component: {fileID: 5618848954592345424}
   - component: {fileID: 3866275236173722359}
+  - component: {fileID: 409893604}
   m_Layer: 0
   m_Name: OldMan
   m_TagString: NPC
@@ -179,9 +180,19 @@ MonoBehaviour:
   dialogueDisplay: {fileID: 5618848955003571168}
   guestDisplay: {fileID: 5618848954242057314}
   questButton: {fileID: 5618848955396150859}
-  questIntro: []
-  questUnfinished: 
-  questCompletion: []
+  questIntro:
+  - When I was young, our town was ruled by the old king.
+  - The young folk know only rumour.
+  - But I remember that he was murdered in the night.
+  - His son took over the thrown.
+  - This town has been cursed ever since.
+  - Argh! Over there! Ghosts of the old kings!
+  questUnfinished: Please, I didn't do anything wrong!
+  questCompletion:
+  - Thank you for saving me.
+  - I still struggle to sleep at night.
+  - Take this branch from the large tree.
+  - Take this branch from the large tree.
   questStage: 0
   dialogueCount: 0
   completionCondition: 0
@@ -237,6 +248,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &409893604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5618848954592345438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b514f26fee28de44dae5f7d439b739f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 4613489931850295977, guid: c8cc1255e467f97489927d2188af26ff, type: 3}
 --- !u!1 &5618848954895738237
 GameObject:
   m_ObjectHideFlags: 0

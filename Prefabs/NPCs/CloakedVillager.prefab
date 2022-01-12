@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 459270168797728852}
   - component: {fileID: 459270168797728855}
   - component: {fileID: 9079901456698728432}
+  - component: {fileID: 865997054}
   m_Layer: 0
   m_Name: CloakedVillager
   m_TagString: NPC
@@ -103,9 +104,15 @@ MonoBehaviour:
   dialogueDisplay: {fileID: 459270170817488615}
   guestDisplay: {fileID: 459270169521170789}
   questButton: {fileID: 459270170136034124}
-  questIntro: []
-  questUnfinished: 
-  questCompletion: []
+  questIntro:
+  - I hear that you've been helping people.
+  - I could really use some help.
+  - I came over to this town for work but left my family behind.
+  - I I know they are living in nice conditions I'd feel a lot better.
+  - Can you upgrade the town to level 3 for me?
+  questUnfinished: How are my family doing?
+  questCompletion:
+  - Thanks so much! Here, take this gold for your help.
   questStage: 0
   dialogueCount: 0
   completionCondition: 0
@@ -161,6 +168,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &865997054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459270168797728857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b93d523452232438fe8f0325dc9305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &459270169521170789
 GameObject:
   m_ObjectHideFlags: 0

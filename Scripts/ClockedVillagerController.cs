@@ -19,7 +19,7 @@ public class ClockedVillagerController : MonoBehaviour
     void Update() {
         if ((npcController.questStage == 2) && !questGiven) {
             questGiven = true;
-        } else if (questGiven && (playerController.housesBought > 1) && !questCompleted) {
+        } else if (questGiven && (playerController.housesBought >= 1) && !questCompleted) {
             npcController.completionCondition = true;
             npcController.playerController.questsCompleted++;
             playerController.money += 500;

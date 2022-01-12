@@ -23,7 +23,7 @@ public class BlacksmithController : MonoBehaviour
             questGiven = true;
             woodCount = playerController.treesChoppedDown;
             stoneCount = playerController.stoneMined;
-        } else if (questGiven && (playerController.treesChoppedDown > woodCount + 3) && (playerController.stoneMined > stoneCount + 3) && !questCompleted) {
+        } else if (questGiven && (playerController.treesChoppedDown >= woodCount + 3) && (playerController.stoneMined >= stoneCount + 3) && !questCompleted) {
             npcController.completionCondition = true;
             playerController.questsCompleted++;
             playerController.damage += 20;

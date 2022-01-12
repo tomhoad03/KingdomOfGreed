@@ -14,7 +14,7 @@ public class TreeScript : MonoBehaviour {
     private float UItimer;
 
     void Start() {
-        shop = GameObject.Find("ShopMain");
+        shop = GameObject.Find("Shop");
         player = GameObject.Find("Player");
         shopManager = shop.GetComponent<ShopManager>();
         float chopValue = 0;

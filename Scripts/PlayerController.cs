@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject sword;
     public GameObject shield;
+    public GameObject bucket;
     public GameObject swordSwipe;
     public GameObject waterBucket;
     private float attackTime;
@@ -77,6 +78,8 @@ public class PlayerController : MonoBehaviour {
             enemyColliding = true;
         } else if (other.gameObject.tag == "Fire") {
             fireColliding = true;
+            bucket.SetActive(true);
+            sword.SetActive(false);
         }
     }
 
@@ -84,7 +87,9 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.tag == "Enemy") {
             enemyColliding = false;
         } else if (other.gameObject.tag == "Fire") {
-            fireColliding = true;
+            fireColliding = false;
+            bucket.SetActive(false);
+            sword.SetActive(true);
         }
     }
 

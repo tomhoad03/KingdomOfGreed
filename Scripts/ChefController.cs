@@ -21,7 +21,7 @@ public class ChefController : MonoBehaviour
         if ((npcController.questStage == 2) && !questGiven) {
             questGiven = true;
             treeCount = playerController.treesChoppedDown;
-        } else if (questGiven && (playerController.treesChoppedDown > treeCount + 5) && !questCompleted) {
+        } else if (questGiven && (playerController.treesChoppedDown >= treeCount + 5) && !questCompleted) {
             npcController.completionCondition = true;
             npcController.playerController.questsCompleted++;
             playerController.chopSpeed += 10;

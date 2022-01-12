@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 6569258730152430460}
   - component: {fileID: 6569258730152430463}
   - component: {fileID: 2555616381363389656}
+  - component: {fileID: 1728118888}
   m_Layer: 0
   m_Name: Blacksmith
   m_TagString: NPC
@@ -534,9 +535,15 @@ MonoBehaviour:
   dialogueDisplay: {fileID: 6569258728145796559}
   guestDisplay: {fileID: 6569258729567416909}
   questButton: {fileID: 6569258728831705188}
-  questIntro: []
-  questUnfinished: 
-  questCompletion: []
+  questIntro:
+  - Oww my hand!
+  - I really could use some help getting some new tools.
+  - Would you be able to make me some?
+  - I need 300 wood and 300 stone please!
+  questUnfinished: Could you get me some wood and stone please?
+  questCompletion:
+  - Thank you so much!
+  - Here, let me sharpen your sword in return
   questStage: 0
   dialogueCount: 0
   completionCondition: 0
@@ -592,6 +599,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1728118888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6569258730152430449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f4dc6240504de48a4843483a0da94b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4072176141418429702
 PrefabInstance:
   m_ObjectHideFlags: 0

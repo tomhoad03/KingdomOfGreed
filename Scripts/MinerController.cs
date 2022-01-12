@@ -21,7 +21,7 @@ public class MinerController : MonoBehaviour
         if ((npcController.questStage == 2) && !questGiven) {
             questGiven = true;
             stoneCount = playerController.stoneMined;
-        } else if (questGiven && (playerController.stoneMined > stoneCount + 5) && !questCompleted) {
+        } else if (questGiven && (playerController.stoneMined >= stoneCount + 5) && !questCompleted) {
             npcController.completionCondition = true;
             npcController.playerController.questsCompleted++;
             playerController.chopSpeed += 10;

@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 2662263541585611668}
   - component: {fileID: 2662263541585611671}
   - component: {fileID: 6678749292437701680}
+  - component: {fileID: 172262242}
   m_Layer: 0
   m_Name: Miner
   m_TagString: NPC
@@ -534,9 +535,14 @@ MonoBehaviour:
   dialogueDisplay: {fileID: 2662263539832601895}
   guestDisplay: {fileID: 2662263541130490533}
   questButton: {fileID: 2662263540254269580}
-  questIntro: []
-  questUnfinished: 
-  questCompletion: []
+  questIntro:
+  - Phew this is tough work.
+  - Would you be able to lend a hand please.
+  - Can you mine at least 5 patches of stone?
+  questUnfinished: Have you mined enough stone yet?
+  questCompletion:
+  - Thanks for that.
+  - Let me show you how to get more stone per swing.
   questStage: 0
   dialogueCount: 0
   completionCondition: 0
@@ -592,6 +598,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &172262242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2662263541585611673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78788c4467907340955fefa22ce20ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3428849403109587686
 PrefabInstance:
   m_ObjectHideFlags: 0
