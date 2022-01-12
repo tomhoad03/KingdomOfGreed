@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 5972070449532187339}
   - component: {fileID: 3079586812750085484}
   m_Layer: 0
-  m_Name: Graham
+  m_Name: Fighter
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,21 +175,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10076fc7ade14fb4fbee344cf3dd268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
   dialogueDisplay: {fileID: 5972070449925063803}
   guestDisplay: {fileID: 5972070449043491833}
   questButton: {fileID: 5972070450304539088}
-  questAdvertismentGood:
-  - Can you help me with something?
-  - Over here!
-  questAdvertismentBad:
-  - I don't want your help.
-  - Why did you do this too us?
-  questIntro: []
-  questUnfinishedGood: []
-  questUnfinishedBad: []
-  questCompletion: []
-  questFinishedGood: []
-  questFinishedBad: []
+  questIntro:
+  - Keep an eye out.
+  - There vampires roaming these woods.
+  - We could really use a hand in dealing with them.
+  - I'll be sure to pay well.
+  questUnfinished: Stay back you vampires!
+  questCompletion:
+  - Ouch, I think I took a few scrapes there.
+  - Here, take my sword and some gold.
+  - It'll suit you a bit better than me.
   questStage: 0
   dialogueCount: 0
   completionCondition: 0
@@ -438,8 +437,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -246,9 +246,9 @@ public class ShopManager : MonoBehaviour {
     }
 
         public void MaterialPurchaseThree() {
-        if (CanAffordStone(playerController.stone, 500)) {
+        if (CanAffordStone(playerController.money, 100)) {
             canAfford.SetActive(true);
-            playerController.money += 100;
+            playerController.maxHealth += 100;
         } else {
             cannotAfford.SetActive(true);
         }

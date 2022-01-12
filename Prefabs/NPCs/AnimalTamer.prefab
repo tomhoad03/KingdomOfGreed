@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7111751372346385238}
   - component: {fileID: 1941026962354040049}
   m_Layer: 0
-  m_Name: Gareth
+  m_Name: AnimalTamer
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,21 +99,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10076fc7ade14fb4fbee344cf3dd268e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
   dialogueDisplay: {fileID: 7111751374350013926}
   guestDisplay: {fileID: 7111751372935731812}
   questButton: {fileID: 7111751373668026445}
-  questAdvertismentGood:
-  - Can you help me with something?
-  - Over here!
-  questAdvertismentBad:
-  - I don't want your help.
-  - Why did you do this too us?
-  questIntro: []
-  questUnfinishedGood: []
-  questUnfinishedBad: []
-  questCompletion: []
-  questFinishedGood: []
-  questFinishedBad: []
+  questIntro:
+  - This forest is cursed traveller.
+  - My animals have been roaming wild recently.
+  - They will attack anything they see now.
+  - Can you help me reign them in please?
+  questUnfinished: Hows the herding going?
+  questCompletion:
+  - I just don't understand this forest.
+  - Why have we been cursed like this?
+  - Anyway, take some gold for your troubles.
   questStage: 0
   dialogueCount: 0
   completionCondition: 0
@@ -558,8 +557,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
