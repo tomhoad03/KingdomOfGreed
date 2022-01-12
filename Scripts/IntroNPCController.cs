@@ -8,7 +8,7 @@ public class IntroNPCController : MonoBehaviour
 {
     private GameObject player;
     private PlayerController playerController;
-    public bool playerColliding;
+    private bool playerColliding;
 
     private bool playerOfferMade = false;
     private bool playerOfferRecieved = false;
@@ -22,7 +22,7 @@ public class IntroNPCController : MonoBehaviour
     private string[] introAdvertisment = {"Hello?", "Over here!", "Someone help me!"};
     private string[] introOffer = {"Who are you? Where did you come from?", "I thought it was impossible to make it through the forest.", "I could really use your help traveller."};
     private string[] introAcceptance = {"Thank you so much!", "This forest changes people, makes them greedy.", "You'll earn a reward for every enemy you defeat.", "Once you're done, head north west.", "Watch out, they are coming from behind!"};
-    private string[] introRefusal = {"Oh, nevermind then.", "I'm sure you'll want to visit the town.", "Just head north east.", "You should find everything you need."};
+    private string[] introRefusal = {"Oh, nevermind then.", "I'm sure you'll want to visit the town.", "Just head north west.", "You should find everything you need."};
     private string[] introAcceptanceEnd = {"Thanks for the help!", "Watch your back out there!"};
     private string[] introRefusalEnd = {"I hope you're not here to cause trouble."};
 
@@ -32,7 +32,7 @@ public class IntroNPCController : MonoBehaviour
 
     public GameObject enemy;
     public TextMeshProUGUI hintText;
-    public GameObject leftBridge, rightBridge;
+    public GameObject leftBridge;
     
     void Start() {
         player = GameObject.Find("Player");
@@ -94,7 +94,7 @@ public class IntroNPCController : MonoBehaviour
         enemy3.transform.parent = GameObject.Find("Enemies").transform;
 
         baseKilled = playerController.enemiesKilled;
-
+        playerController.introQuestAccepted = true;
         hintText.text = "Head north west.";
     }
 
@@ -105,9 +105,9 @@ public class IntroNPCController : MonoBehaviour
     }
 
     void badConsequences() {
-        rightBridge.SetActive(false);
+        leftBridge.SetActive(false);
 
-        hintText.text = "Head north east.";
+        hintText.text = "Head north west.";
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -115,7 +115,7 @@ public class IntroNPCController : MonoBehaviour
             playerColliding = true;
             introDisplay.SetActive(true);
 
-            if (playerOfferRecieved || playerOfferAccepted) {
+            if (playerOfferRecieved && playerOfferAccepted) {
                 dialogueDisplay.text = introAcceptanceEnd[UnityEngine.Random.Range(0, introAcceptanceEnd.Length)];
             } else if (playerOfferRecieved) {
                 dialogueDisplay.text = introRefusalEnd[UnityEngine.Random.Range(0, introRefusalEnd.Length)];

@@ -93,7 +93,8 @@ public class KingController : MonoBehaviour {
         enemy2.transform.parent = GameObject.Find("Enemies").transform;
         enemy3.transform.parent = GameObject.Find("Enemies").transform;
 
-        hintText.text = "You have chosen to refuse the offer. Escape the castle.";
+        hintText.text = "You have chosen to refuse the offer. Defeat the king.";
+        playerController.kingsOfferQuestRefused = true;
     }
 
     void badChoice() {
@@ -116,6 +117,7 @@ public class KingController : MonoBehaviour {
         king.transform.parent = GameObject.Find("Enemies").transform;
 
         hintText.text = "You have chosen to accept the offer. The forest disapproves.";
+        playerController.kingsOfferQuestAccepted = true;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -123,7 +125,7 @@ public class KingController : MonoBehaviour {
             playerColliding = true;
             kingDisplay.SetActive(true);
 
-            if (playerOfferRecieved || playerOfferAccepted) {
+            if (playerOfferRecieved && playerOfferAccepted) {
                 dialogueDisplay.text = kingAcceptanceEnd[UnityEngine.Random.Range(0, kingAcceptanceEnd.Length)];
             } else if (playerOfferRecieved) {
                 dialogueDisplay.text = kingRefusalEnd[UnityEngine.Random.Range(0, kingRefusalEnd.Length)];

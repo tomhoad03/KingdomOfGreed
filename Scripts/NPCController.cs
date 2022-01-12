@@ -7,21 +7,16 @@ using TMPro;
 
 public class NPCController : MonoBehaviour {
     private GameObject player;
-    private PlayerController playerController;
+    public PlayerController playerController;
 
     // NPC dialogue collection
     public TextMeshProUGUI dialogueDisplay;
     public GameObject guestDisplay;
     public Button questButton;
 
-    public string[] questAdvertismentGood = {};
-    public string[] questAdvertismentBad = {};
     public string[] questIntro = {};
-    public string[] questUnfinishedGood = {};
-    public string[] questUnfinishedBad = {};
+    public string questUnfinished;
     public string[] questCompletion = {};
-    public string[] questFinishedGood = {};
-    public string[] questFinishedBad = {};
 
     public int questStage = 0;
     public int dialogueCount = 0;
@@ -48,11 +43,7 @@ public class NPCController : MonoBehaviour {
             } else {
                 questStage = 2;
 
-                if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
-                    dialogueDisplay.text = questUnfinishedBad[UnityEngine.Random.Range(0, questUnfinishedBad.Length)];
-                } else {
-                    dialogueDisplay.text = questUnfinishedGood[UnityEngine.Random.Range(0, questUnfinishedGood.Length)];
-                }
+                dialogueDisplay.text = questUnfinished;
 
                 dialogueCount = 0;
                 questButton.gameObject.SetActive(completionCondition);
@@ -66,10 +57,22 @@ public class NPCController : MonoBehaviour {
             } else {
                 questStage = 4;
 
-                if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
-                    dialogueDisplay.text = questFinishedBad[UnityEngine.Random.Range(0, questFinishedBad.Length)];
+                if (playerController.kingsOfferQuestRefused) {
+                    dialogueDisplay.text = "Thank you for saving our town!";
+                } else if (playerController.kingsOfferQuestAccepted) {
+                    dialogueDisplay.text = "Why have you forsaken us?";
+                } else if (playerController.oldTreeQuestAccepted) {
+                    dialogueDisplay.text = "May the old kings protect you.";
+                } else if (playerController.oldTreeQuestRefused) {
+                    dialogueDisplay.text = "The old kings will never rest whilst you survive.";
+                } else if (playerController.burningTownQuestRefused) {
+                    dialogueDisplay.text = "Without you we might not have survived!";
+                } else if (playerController.burningTownQuestAccepted) {
+                    dialogueDisplay.text = "Why have you done this too us?";
+                } else if (playerController.introQuestAccepted) {
+                    dialogueDisplay.text = "Thanks for the help!";
                 } else {
-                    dialogueDisplay.text = questFinishedGood[UnityEngine.Random.Range(0, questFinishedGood.Length)];
+                    dialogueDisplay.text = "Have a good day.";
                 }
             
                 playerController.money += 200;
@@ -83,10 +86,22 @@ public class NPCController : MonoBehaviour {
         if (other.gameObject.name == "Player") {
             switch (questStage) {
                 case 0:
-                    if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
-                        dialogueDisplay.text = questAdvertismentBad[UnityEngine.Random.Range(0, questAdvertismentBad.Length)];
+                    if (playerController.kingsOfferQuestRefused) {
+                        dialogueDisplay.text = "Does our hero have time to lend a hand?";
+                    } else if (playerController.kingsOfferQuestAccepted) {
+                        dialogueDisplay.text = "Please ease our suffering.";
+                    } else if (playerController.oldTreeQuestAccepted) {
+                        dialogueDisplay.text = "I've heard that you might be able to help me.";
+                    } else if (playerController.oldTreeQuestRefused) {
+                        dialogueDisplay.text = "I really need some help, even from you.";
+                    } else if (playerController.burningTownQuestRefused) {
+                        dialogueDisplay.text = "Can you spare a moment to help?";
+                    } else if (playerController.burningTownQuestAccepted) {
+                        dialogueDisplay.text = "I'm desperate for help but I won't pay you.";
+                    } else if (playerController.introQuestAccepted) {
+                        dialogueDisplay.text = "Hello! I hear you can help me?";
                     } else {
-                        dialogueDisplay.text = questAdvertismentGood[UnityEngine.Random.Range(0, questAdvertismentGood.Length)];
+                        dialogueDisplay.text = "Will you help me?";
                     }
                     questButton.gameObject.SetActive(true);
                     break;
@@ -95,11 +110,7 @@ public class NPCController : MonoBehaviour {
                     questButton.gameObject.SetActive(true);
                     break;
                 case 2:
-                    if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
-                        dialogueDisplay.text = questUnfinishedBad[UnityEngine.Random.Range(0, questUnfinishedBad.Length)];
-                    } else {
-                        dialogueDisplay.text = questUnfinishedGood[UnityEngine.Random.Range(0, questUnfinishedGood.Length)];
-                    }
+                    dialogueDisplay.text = questUnfinished;
                     questButton.gameObject.SetActive(completionCondition);
                     break;
                 case 3:
@@ -107,10 +118,22 @@ public class NPCController : MonoBehaviour {
                     questButton.gameObject.SetActive(true);
                     break;
                 case 4:
-                    if (playerController.arrivedInTown2 && ((!playerController.helpedTown1 && !playerController.helpedTown2) || playerController.acceptedKingsOffer)) {
-                        dialogueDisplay.text = questFinishedBad[UnityEngine.Random.Range(0, questFinishedBad.Length)];
+                    if (playerController.kingsOfferQuestRefused) {
+                        dialogueDisplay.text = "Thank you for saving our town!";
+                    } else if (playerController.kingsOfferQuestAccepted) {
+                        dialogueDisplay.text = "Why have you forsaken us?";
+                    } else if (playerController.oldTreeQuestAccepted) {
+                        dialogueDisplay.text = "May the old kings protect you.";
+                    } else if (playerController.oldTreeQuestRefused) {
+                        dialogueDisplay.text = "The old kings will never rest whilst you survive.";
+                    } else if (playerController.burningTownQuestRefused) {
+                        dialogueDisplay.text = "Without you we might not have survived!";
+                    } else if (playerController.burningTownQuestAccepted) {
+                        dialogueDisplay.text = "Why have you done this too us?";
+                    } else if (playerController.introQuestAccepted) {
+                        dialogueDisplay.text = "Thanks for the help!";
                     } else {
-                        dialogueDisplay.text = questFinishedGood[UnityEngine.Random.Range(0, questFinishedGood.Length)];
+                        dialogueDisplay.text = "Have a good day.";
                     }
                     break;
             }

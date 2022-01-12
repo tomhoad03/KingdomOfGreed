@@ -19,17 +19,18 @@ public class TreeNPCController : MonoBehaviour
     public GameObject treeDisplay, goodOption, badOption;
     public Button questButton, goodOptionBtn, badOptionBtn;
 
-    private string[] treeAdvertisment = {"What are you doing on my land!", "Get out of here before I set my dogs on you.", "Guards!"};
-    private string[] treeOffer = {"I've been watching you for a while now.", "You've made quite the mess of my land.", "I want to make you a peace offering.", "You can share some of my endless wealth...", "...or I shall order for you to be executed right now.", "What shall it be?"};
-    private string[] treeAcceptance = {"You have chosen wisely.", "I burnt that village to the ground to send a message.", "To earn this wealth, you must do so at the sacrifice of others.", "Your actions were noble, but only you deserve such wealth.", "Wait? What is that over there!", "Nooooo, I'm sorry father!"};
-    private string[] treeRefusal = {"You are a coward just like my father!", "You show too much compassion for these people.", "It shall be your downfall.", "Guards! Sieze him!"};
-    private string[] treeAcceptanceEnd = {"We must protect our gold!", "Please! Save me!", "Father? Is that you?", "Please! Leave me alone!"};
-    private string[] treeRefusalEnd = {"How dare you refuse my gold!", "What did the people of this town ever do to you.", "It's your fault the village burnt to the ground!"};
+    private string[] treeAdvertisment = {"Come speak to me.", "Do you want to know more about this place?"};
+    private string[] treeOffer = {"This tree is very important to our people.", "Those that can see through the greed remember it.", "Our old king was buried here, murdered by his own son.", "The king is a greedy coward who only wanted power.", "This tree grew here and so did the forest around our town.", "Now none of us can leave.", "You must protect this tree from the king.", "If it falls I fear the kings greed may consume us all."};
+    private string[] treeAcceptance = {"Defend this tree with your life!"};
+    private string[] treeRefusal = {"You have forsaken this town.", "The forest will punish you for your greed."};
+    private string[] treeAcceptanceEnd = {"Remember what the king has done to this town."};
+    private string[] treeRefusalEnd = {"This tree was sacred to us."};
 
     private int dialogueCount = 0;
 
-    public GameObject enemy;
+    public GameObject knight, king;
     public TextMeshProUGUI hintText;
+    public GameObject midBridge, leftBridge;
     
     void Start() {
         player = GameObject.Find("Player");
@@ -65,34 +66,49 @@ public class TreeNPCController : MonoBehaviour
             dialogueCount++;
         } else if (!playerOfferConsequences && playerOfferAccepted) {
             playerOfferConsequences = true;    
-            badConsequences();
+            goodConsequences();
         } else if (!playerOfferConsequences && !playerOfferAccepted) {
             playerOfferConsequences = true;    
-            goodConsequences();
+            badConsequences();
         } else {
+            midBridge.SetActive(false);
+            leftBridge.SetActive(false);
             questButton.gameObject.SetActive(false);
         }
     }
 
     void goodChoice() {
         playerOfferRecieved = true;
-
-        questButton.gameObject.SetActive(true);
-    }
-
-    void goodConsequences() {
-        hintText.text = "Head north west.";
-    }
-
-    void badChoice() {
-        playerOfferRecieved = true;
         playerOfferAccepted = true;
 
         questButton.gameObject.SetActive(true);
     }
 
+    void goodConsequences() {
+        GameObject enemy1 = Instantiate(knight, new Vector3(48, (float) -20, 0), Quaternion.identity) as GameObject;
+        GameObject enemy2 = Instantiate(knight, new Vector3(52, (float) -20, 0), Quaternion.identity) as GameObject;
+        GameObject enemy3 = Instantiate(knight, new Vector3(56, (float) -20, 0), Quaternion.identity) as GameObject;
+
+        enemy1.transform.parent = GameObject.Find("Enemies").transform;
+        enemy2.transform.parent = GameObject.Find("Enemies").transform;
+        enemy3.transform.parent = GameObject.Find("Enemies").transform;
+
+        hintText.text = "Defend the tree from the king.";
+        playerController.oldTreeQuestAccepted = true;
+    }
+
+    void badChoice() {
+        playerOfferRecieved = true;
+
+        questButton.gameObject.SetActive(true);
+    }
+
     void badConsequences() {
-        hintText.text = "Head north east.";
+        GameObject oldKing = Instantiate(king, new Vector3(52, (float) -20, 0), Quaternion.identity) as GameObject;
+        oldKing.transform.parent = GameObject.Find("Enemies").transform;
+
+        hintText.text = "Defeat the ghost of the old king.";
+        playerController.oldTreeQuestRefused = true;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -100,7 +116,7 @@ public class TreeNPCController : MonoBehaviour
             playerColliding = true;
             treeDisplay.SetActive(true);
 
-            if (playerOfferRecieved || playerOfferAccepted) {
+            if (playerOfferRecieved && playerOfferAccepted) {
                 dialogueDisplay.text = treeAcceptanceEnd[UnityEngine.Random.Range(0, treeAcceptanceEnd.Length)];
             } else if (playerOfferRecieved) {
                 dialogueDisplay.text = treeRefusalEnd[UnityEngine.Random.Range(0, treeRefusalEnd.Length)];

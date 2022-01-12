@@ -101,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.05
   damageIndicatorTime: 0
-  damage: 100
-  health: 1000
+  damage: 150
+  health: 1500
 --- !u!61 &5314156945549307963
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7588199050394742710
 BoxCollider2D:
   m_ObjectHideFlags: 0

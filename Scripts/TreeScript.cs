@@ -28,18 +28,11 @@ public class TreeScript : MonoBehaviour {
 
         if (other.gameObject.name == "Player") {
             Debug.Log("Hit registered");
-            treePos = playerPos;
-            treeX = treePos.x;
-            treeY = treePos.y;
             atTree = true;
         }
     }
 
     void FixedUpdate() {
-
-        playerPos = player.transform.position;
-        playerX = playerPos.x;
-        playerY = playerPos.y;
 
         /** What happened was, the script worked perfect with one tree, and then the 
          *  other trees not having the player near them would have atTree = false and 
@@ -53,7 +46,7 @@ public class TreeScript : MonoBehaviour {
             UItimer += Time.deltaTime;
             if (UItimer < 5) {
                 player.GetComponent<PlayerController>().pressButton.gameObject.SetActive(true);
-                Debug.Log(UItimer);
+                //Debug.Log(UItimer);
             } else {
                 player.GetComponent<PlayerController>().pressButton.gameObject.SetActive(false);
                 player.GetComponent<PlayerController>().chopperUI.SetActive(false);
@@ -74,6 +67,7 @@ public class TreeScript : MonoBehaviour {
                     player.GetComponent<PlayerController>().chopperUI.SetActive(false);
                     gameObject.SetActive(false);
                     player.GetComponent<PlayerController>().wood += 10;
+                    player.GetComponent<PlayerController>().treesChoppedDown++;
                     atTree = false;
                 }
             } else {

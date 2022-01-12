@@ -830,7 +830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Refuse and Challenge the King
+  m_text: Protect the tree from the king.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1082,8 +1082,11 @@ MonoBehaviour:
   questButton: {fileID: 389735079312639956}
   goodOptionBtn: {fileID: 389735078922900434}
   badOptionBtn: {fileID: 389735077720457280}
-  enemy: {fileID: 4613489931850295977, guid: c8cc1255e467f97489927d2188af26ff, type: 3}
+  knight: {fileID: 5221625775784581477, guid: e03313d2e6896f0479d7b6592bc90c0a, type: 3}
+  king: {fileID: 0}
   hintText: {fileID: 0}
+  midBridge: {fileID: 0}
+  leftBridge: {fileID: 0}
 --- !u!61 &389735078891165744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1377,7 +1380,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -25.119995, y: 38.059998}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 677, y: 639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &389735079133486544
@@ -1399,7 +1402,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 120
+  m_SortingOrder: 300
   m_TargetDisplay: 0
 --- !u!114 &389735079133486559
 MonoBehaviour:
@@ -1881,7 +1884,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Accept the Kings Money
+  m_text: Try to harvest the tree.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

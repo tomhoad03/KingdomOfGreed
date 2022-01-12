@@ -14,16 +14,20 @@ public class PlayerController : MonoBehaviour {
     public int maxHealth = 1000;
 
     public int enemiesKilled = 0;
+    public int treesChoppedDown = 0;
+    public int stoneMined = 0;
     public int firesPutOut = 0;
     public int housesBought = 0;
-    public int materialsCollected = 0;
-    public int questsCompleted;
+    // public int materialsCollected = 0;
+    public int questsCompleted = 0;
 
-    public bool arrivedInTown1 = false; // the player has arrived in town 1
-    public bool helpedTown1 = false; // the player choose to help town 1
-    public bool arrivedInTown2 = false; // the player has arrived in town 2
-    public bool helpedTown2 = false; // the player choose to help town 2
-    public bool acceptedKingsOffer = false; // does the player accept the kings offer
+    public bool introQuestAccepted = false; // did the player help the first npc
+    public bool burningTownQuestAccepted = false; // the player pays up and fights some villagers
+    public bool burningTownQuestRefused = false; // the player must deal with the burning town
+    public bool oldTreeQuestAccepted = false; // the player protects the tree
+    public bool oldTreeQuestRefused = false; // the player tries to harvest the tree
+    public bool kingsOfferQuestAccepted = false; // the player accepts the riches
+    public bool kingsOfferQuestRefused = false; // the player challenges the king
 
     public float damageIndicatorTime;
     private float healthRecoveryTime;
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject sword;
     public GameObject shield;
     public GameObject swordSwipe;
+    public GameObject waterBucket;
     private float attackTime;
     private float angle;
     private bool shieldUp;
@@ -109,7 +114,7 @@ public class PlayerController : MonoBehaviour {
             health += 1;
             healthRecoveryTime = Time.time + 0.1f;
         }
-        if (Input.GetMouseButtonDown(0) && Time.time > attackTime && !shieldUp) {
+        if (Input.GetMouseButtonDown(0) && Time.time > attackTime && !shieldUp && enemyColliding) {
             if (angle > 90 || angle < -90) {
                 sword.transform.rotation = Quaternion.Euler(0, 180, 50);
             } else {
@@ -118,6 +123,9 @@ public class PlayerController : MonoBehaviour {
             
             swordSwipe.GetComponent<AudioSource>().Play(0);
             attackTime = Time.time + 0.2f;
+        } else if (Input.GetMouseButtonDown(0) && Time.time > attackTime && !shieldUp && fireColliding) {
+            waterBucket.GetComponent<AudioSource>().Play(0);
+            attackTime = Time.time + 1.0f;
         } else if (Time.time > attackTime) {
             if (angle > 90 || angle < -90) {
                 sword.transform.rotation = Quaternion.Euler(0, 180, 32);
@@ -125,6 +133,7 @@ public class PlayerController : MonoBehaviour {
                 sword.transform.rotation = Quaternion.Euler(0, 0, 32);
             }
         }
+
         if (Input.GetMouseButton(1)) {
             shieldUp = true;
             shield.SetActive(true);
@@ -144,22 +153,6 @@ public class PlayerController : MonoBehaviour {
         } else {
             this.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-
-        /*
-        // Town 1 fire
-        if (Time.time > burnTown1Time && !startedTown1Fire) {
-            GameObject fire1 = Instantiate(fire, new Vector3(-26.5f, (float) 0, -1), Quaternion.identity) as GameObject;
-            GameObject fire2 = Instantiate(fire, new Vector3(-26.5f, (float) 7, -1), Quaternion.identity) as GameObject;
-
-            fire1.transform.parent = GameObject.Find("Fire").transform;
-            fire2.transform.parent = GameObject.Find("Fire").transform;
-
-            startedTown1Fire = true;
-        }
-        if (startedTown1Fire && firesPutOut > 5 && !arrivedInTown2) {
-            helpedTown1 = true;
-        }
-        */
     }
 
     void FixedUpdate() {
