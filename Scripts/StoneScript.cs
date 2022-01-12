@@ -5,21 +5,18 @@ using UnityEngine;
 public class StoneScript : MonoBehaviour {
 
     private GameObject player;
-
-    private Vector3 stonePos;
-    private Vector3 playerPos;
+    private GameObject shop;
+    private ShopManager shopManager;
 
     private bool atStone;
     private float chopValue;
 
-    private float stoneX;
-    private float stoneY;
-    private float playerX;
-    private float playerY;
     private float UItimer;
 
     void Start() {
+        shop = GameObject.Find("ShopMain");
         player = GameObject.Find("Player");
+        shopManager = shop.GetComponent<ShopManager>();
         float chopValue = 0;
         UItimer = 0f;
     }
@@ -41,7 +38,7 @@ public class StoneScript : MonoBehaviour {
          */
 
         // All of these setActives are actually necessary
-        if (atStone) {
+        if (atStone && shopManager.ownsPickaxe) {
 
             UItimer += Time.deltaTime;
             if (UItimer < 5) {

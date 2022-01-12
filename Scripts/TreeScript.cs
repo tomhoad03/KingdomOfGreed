@@ -5,21 +5,18 @@ using UnityEngine;
 public class TreeScript : MonoBehaviour {
 
     private GameObject player;
-
-    private Vector3 treePos;
-    private Vector3 playerPos;
+    private GameObject shop;
+    private ShopManager shopManager;
 
     private bool atTree;
     private float chopValue;
 
-    private float treeX;
-    private float treeY;
-    private float playerX;
-    private float playerY;
     private float UItimer;
 
     void Start() {
+        shop = GameObject.Find("ShopMain");
         player = GameObject.Find("Player");
+        shopManager = shop.GetComponent<ShopManager>();
         float chopValue = 0;
         UItimer = 0f;
     }

@@ -27,8 +27,12 @@ public class MapScript : MonoBehaviour {
     public GameObject house3_3;
     public GameObject house3_4;
 
+    // Player
+    private GameObject player;
+
 
     void Start() {
+        player = GameObject.Find("Player");
         shop = GameObject.Find("ShopMain");
     }
 

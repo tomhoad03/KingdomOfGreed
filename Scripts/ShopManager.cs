@@ -14,6 +14,7 @@ public class ShopManager : MonoBehaviour {
     public GameObject shop;
     public GameObject cannotAfford;
     public GameObject canAfford;
+    public GameObject alreadyOwn;
     public Text moneyText;
     public Text woodText;
     public Text stoneText;
@@ -22,6 +23,14 @@ public class ShopManager : MonoBehaviour {
     public bool ownsHouse1;
     public bool ownsHouse2;
     public bool ownsHouse3;
+
+    public bool ownsAxe;
+    public bool ownsPickaxe;
+    public bool ownsFishingRod;
+
+    private bool armour1;
+    private bool armour2;
+    private bool armour3;
 
     void Start() {
         player = GameObject.Find("Player");
@@ -120,10 +129,17 @@ public class ShopManager : MonoBehaviour {
 
     // Armour purchases
     public void ArmourPurchaseOne() {
+
         if (CanAffordMoney(playerController.money, 500)) {
-            playerController.maxHealth += 500;
-            playerController.speed += 0.002f;
-            canAfford.SetActive(true);
+            if (!armour1) {
+                playerController.maxHealth += 500;
+                playerController.speed += 0.002f;
+                canAfford.SetActive(true);
+                armour1 = true;
+            } else {
+                playerController.money += 500;
+                alreadyOwn.SetActive(true);
+            }       
         } else {
             cannotAfford.SetActive(true);
         }
@@ -131,9 +147,15 @@ public class ShopManager : MonoBehaviour {
 
     public void ArmourPurchaseTwo() {
         if (CanAffordMoney(playerController.money, 500)) {
-            playerController.maxHealth += 500;
-            playerController.speed += 0.002f;
-            canAfford.SetActive(true);
+            if (!armour2) {
+                playerController.maxHealth += 500;
+                playerController.speed += 0.002f;
+                canAfford.SetActive(true);
+                armour2 = true;
+            } else {
+                playerController.money += 500;
+                alreadyOwn.SetActive(true);
+            }
         } else {
             cannotAfford.SetActive(true);
         }
@@ -141,9 +163,15 @@ public class ShopManager : MonoBehaviour {
 
     public void ArmourPurchaseThree() {
         if (CanAffordMoney(playerController.money, 500)) {
-            playerController.maxHealth += 500;
-            playerController.speed += 0.002f;
-            canAfford.SetActive(true);
+            if (!armour3) {
+                playerController.maxHealth += 500;
+                playerController.speed += 0.002f;
+                canAfford.SetActive(true);
+                armour3 = true;
+            } else {
+                playerController.money += 500;
+                alreadyOwn.SetActive(true);
+            }
         } else {
             cannotAfford.SetActive(true);
         }
@@ -152,26 +180,45 @@ public class ShopManager : MonoBehaviour {
     // Weapon purchases
     public void WeaponPurchaseOne() {
         if (CanAffordMoney(playerController.money, 200)) {
-            playerController.damage = 200;
-            canAfford.SetActive(true);
+            if (!ownsAxe) {
+                playerController.chopSpeed *= 2;
+                playerController.damage = 200;
+                canAfford.SetActive(true);
+                ownsAxe = true;
+            } else {
+                playerController.money += 200;
+                alreadyOwn.SetActive(true);
+            }
         } else {
             cannotAfford.SetActive(true);
         }
     }
 
     public void WeaponPurchaseTwo() {
-        if (CanAffordMoney(playerController.money, 400)) {
-            playerController.damage = 300;
-            canAfford.SetActive(true);
+        if (CanAffordMoney(playerController.money, 200)) {
+            if (!ownsPickaxe) {
+                playerController.damage = 300;
+                canAfford.SetActive(true);
+                ownsPickaxe = true;
+            } else {
+                playerController.money += 200;
+                alreadyOwn.SetActive(true);
+            }
         } else {
             cannotAfford.SetActive(true);
         }
     }
 
     public void WeaponPurchaseThree() {
-        if (CanAffordMoney(playerController.money, 600)) {
-            playerController.damage = 400;
-            canAfford.SetActive(true);
+        if (CanAffordMoney(playerController.money, 200)) {
+            if (!ownsFishingRod) {
+                playerController.damage = 400;
+                canAfford.SetActive(true);
+                ownsFishingRod = true;
+            } else {
+                playerController.money += 200;
+                alreadyOwn.SetActive(true);
+            }          
         } else {
             cannotAfford.SetActive(true);
         }
@@ -179,24 +226,18 @@ public class ShopManager : MonoBehaviour {
 
     // Material purchases
     public void MaterialPurchaseOne() {
-        if (CanAffordMoney(playerController.money, 100)) {
+        if (CanAffordWood(playerController.wood, 500)) {
             canAfford.SetActive(true);
+            playerController.money += 100;
         } else {
             cannotAfford.SetActive(true);
         }
     }
 
     public void MaterialPurchaseTwo() {
-        if (CanAffordMoney(playerController.money, 100)) {
+        if (CanAffordStone(playerController.stone, 500)) {
             canAfford.SetActive(true);
-        } else {
-            cannotAfford.SetActive(true);
-        }
-    }
-
-    public void MaterialPurchaseThree() {
-        if (CanAffordMoney(playerController.money, 100)) {
-            canAfford.SetActive(true);
+            playerController.money += 100;
         } else {
             cannotAfford.SetActive(true);
         }
