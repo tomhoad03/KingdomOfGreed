@@ -115,6 +115,13 @@ public class KingController : MonoBehaviour {
 
         GameObject king = Instantiate(oldKing, new Vector3(24, (float) 28, 0), Quaternion.identity) as GameObject;
         king.transform.parent = GameObject.Find("Enemies").transform;
+        
+        playerController.money += 10000;
+        playerController.wood += 1000;
+        playerController.stone += 1000;
+        playerController.damage = 100;
+        playerController.maxHealth = 500;
+        playerController.regenTime = 0.25f;
 
         hintText.text = "You have chosen to accept the offer. The forest disapproves.";
         playerController.kingsOfferQuestAccepted = true;

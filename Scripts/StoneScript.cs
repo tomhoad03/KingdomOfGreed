@@ -13,6 +13,7 @@ public class StoneScript : MonoBehaviour {
 
     private float UItimer;
 
+
     void Start() {
         shop = GameObject.Find("ShopMain");
         player = GameObject.Find("Player");
@@ -63,7 +64,7 @@ public class StoneScript : MonoBehaviour {
                     chopValue = 0;
                     player.GetComponent<PlayerController>().chopperUI.SetActive(false);
                     gameObject.SetActive(false);
-                    player.GetComponent<PlayerController>().stone += 10;
+                    player.GetComponent<PlayerController>().stone += 50;
                     player.GetComponent<PlayerController>().stoneMined++;
                     atStone = false;
                 }

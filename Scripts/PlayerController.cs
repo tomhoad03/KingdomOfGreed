@@ -68,6 +68,9 @@ public class PlayerController : MonoBehaviour {
     public Text moneyText;
     public TextMeshProUGUI hintText;
 
+    // Quest purpose
+    public bool atFishingSpot;
+
     void Start() {
         chopperUI.SetActive(false);
         chopSpeed = 50;
@@ -80,6 +83,10 @@ public class PlayerController : MonoBehaviour {
             fireColliding = true;
             bucket.SetActive(true);
             sword.SetActive(false);
+        }
+        if (other.gameObject.name == "Fishing area") {
+            Debug.Log("At fishing area");
+            atFishingSpot = true;
         }
     }
 

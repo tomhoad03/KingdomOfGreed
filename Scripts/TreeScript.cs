@@ -13,6 +13,7 @@ public class TreeScript : MonoBehaviour {
 
     private float UItimer;
 
+
     void Start() {
         shop = GameObject.Find("Shop");
         player = GameObject.Find("Player");
@@ -63,7 +64,7 @@ public class TreeScript : MonoBehaviour {
                     chopValue = 0;
                     player.GetComponent<PlayerController>().chopperUI.SetActive(false);
                     gameObject.SetActive(false);
-                    player.GetComponent<PlayerController>().wood += 10;
+                    player.GetComponent<PlayerController>().wood += 50;
                     player.GetComponent<PlayerController>().treesChoppedDown++;
                     atTree = false;
                 }
