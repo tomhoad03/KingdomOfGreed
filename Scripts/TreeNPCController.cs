@@ -30,7 +30,7 @@ public class TreeNPCController : MonoBehaviour
 
     public GameObject knight, king;
     public TextMeshProUGUI hintText;
-    public GameObject midBridge, leftBridge;
+    public GameObject castleBridge, midBridge, leftBridge;
     
     void Start() {
         player = GameObject.Find("Player");
@@ -85,13 +85,15 @@ public class TreeNPCController : MonoBehaviour
     }
 
     void goodConsequences() {
-        GameObject enemy1 = Instantiate(knight, new Vector3(48, (float) -20, 0), Quaternion.identity) as GameObject;
-        GameObject enemy2 = Instantiate(knight, new Vector3(52, (float) -20, 0), Quaternion.identity) as GameObject;
-        GameObject enemy3 = Instantiate(knight, new Vector3(56, (float) -20, 0), Quaternion.identity) as GameObject;
+        GameObject enemy1 = Instantiate(knight, new Vector3(48, (float) -15, 0), Quaternion.identity) as GameObject;
+        GameObject enemy2 = Instantiate(knight, new Vector3(52, (float) -15, 0), Quaternion.identity) as GameObject;
+        GameObject enemy3 = Instantiate(knight, new Vector3(56, (float) -15, 0), Quaternion.identity) as GameObject;
 
         enemy1.transform.parent = GameObject.Find("Enemies").transform;
         enemy2.transform.parent = GameObject.Find("Enemies").transform;
         enemy3.transform.parent = GameObject.Find("Enemies").transform;
+
+        castleBridge.SetActive(false);
 
         hintText.text = "Defend the tree from the king.";
         playerController.oldTreeQuestAccepted = true;
@@ -104,8 +106,10 @@ public class TreeNPCController : MonoBehaviour
     }
 
     void badConsequences() {
-        GameObject oldKing = Instantiate(king, new Vector3(52, (float) -20, 0), Quaternion.identity) as GameObject;
+        GameObject oldKing = Instantiate(king, new Vector3(52, (float) -15, 0), Quaternion.identity) as GameObject;
         oldKing.transform.parent = GameObject.Find("Enemies").transform;
+
+        castleBridge.SetActive(false);
 
         hintText.text = "Defeat the ghost of the old king.";
         playerController.oldTreeQuestRefused = true;

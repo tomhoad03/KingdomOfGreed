@@ -9,7 +9,7 @@ public class KingController : MonoBehaviour {
     private PlayerController playerController;
     private bool playerColliding;
 
-    private bool playerOfferMade = false;
+    private bool playerOfferMade = true;
     private bool playerOfferRecieved = false;
     private bool playerOfferAccepted = false;
     private bool playerOfferConsequences = false;
@@ -85,9 +85,9 @@ public class KingController : MonoBehaviour {
     }
 
     void goodConsequences() {
-        GameObject enemy1 = Instantiate(goodEnemy, new Vector3(24, (float) 28, 0), Quaternion.identity) as GameObject;
-        GameObject enemy2 = Instantiate(goodEnemy, new Vector3(28, (float) 28, 0), Quaternion.identity) as GameObject;
-        GameObject enemy3 = Instantiate(goodEnemy, new Vector3(32, (float) 28, 0), Quaternion.identity) as GameObject;
+        GameObject enemy1 = Instantiate(goodEnemy, new Vector3(24, (float) 20, 0), Quaternion.identity) as GameObject;
+        GameObject enemy2 = Instantiate(goodEnemy, new Vector3(28, (float) 20, 0), Quaternion.identity) as GameObject;
+        GameObject enemy3 = Instantiate(goodEnemy, new Vector3(32, (float) 20, 0), Quaternion.identity) as GameObject;
 
         enemy1.transform.parent = GameObject.Find("Enemies").transform;
         enemy2.transform.parent = GameObject.Find("Enemies").transform;
@@ -105,15 +105,15 @@ public class KingController : MonoBehaviour {
     }
 
     void badConsequences() {
-        GameObject enemy1 = Instantiate(badEnemy, new Vector3(24, (float) 28, 0), Quaternion.identity) as GameObject;
-        GameObject enemy2 = Instantiate(badEnemy, new Vector3(28, (float) 28, 0), Quaternion.identity) as GameObject;
-        GameObject enemy3 = Instantiate(badEnemy, new Vector3(32, (float) 28, 0), Quaternion.identity) as GameObject;
+        GameObject enemy1 = Instantiate(badEnemy, new Vector3(24, (float) 20, 0), Quaternion.identity) as GameObject;
+        GameObject enemy2 = Instantiate(badEnemy, new Vector3(28, (float) 20, 0), Quaternion.identity) as GameObject;
+        GameObject enemy3 = Instantiate(badEnemy, new Vector3(32, (float) 20, 0), Quaternion.identity) as GameObject;
 
         enemy1.transform.parent = GameObject.Find("Enemies").transform;
         enemy2.transform.parent = GameObject.Find("Enemies").transform;
         enemy3.transform.parent = GameObject.Find("Enemies").transform;
 
-        GameObject king = Instantiate(oldKing, new Vector3(24, (float) 28, 0), Quaternion.identity) as GameObject;
+        GameObject king = Instantiate(oldKing, new Vector3(24, (float) 20, 0), Quaternion.identity) as GameObject;
         king.transform.parent = GameObject.Find("Enemies").transform;
         
         playerController.money += 10000;
@@ -160,7 +160,7 @@ public class KingController : MonoBehaviour {
             castleBridge.SetActive(false);
         }
         if (playerOfferAccepted && playerController.oldKingDead) {
-            GameObject king = Instantiate(oldKing, new Vector3(24, (float) 28, 0), Quaternion.identity) as GameObject;
+            GameObject king = Instantiate(oldKing, new Vector3(24, (float) 20, 0), Quaternion.identity) as GameObject;
             king.transform.parent = GameObject.Find("Enemies").transform;
             playerController.oldKingDead = false;
         }

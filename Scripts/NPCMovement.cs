@@ -26,7 +26,7 @@ public class NPCMovement : MonoBehaviour {
 
     void Start() {
         player = GameObject.Find("Player");
-        shop = GameObject.Find("shopMain");
+        shop = GameObject.Find("ShopMain");
         shopManager = shop.GetComponent<ShopManager>();
     }
 

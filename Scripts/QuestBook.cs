@@ -80,7 +80,7 @@ public class QuestBook : MonoBehaviour {
         }
 
         if (plantingCrops) {
-            if ((playerController.treesChoppedDown > treesChopped + 4) && (playerController.stoneMined > stonesMined + 4)) {
+            if ((playerController.treesChoppedDown > treesChopped + 4) || (playerController.stoneMined > stonesMined + 4)) {
                 UItimer += Time.deltaTime;
                 if (UItimer < 7) {
                     dialogText.text = "You have completed the second quest!";
